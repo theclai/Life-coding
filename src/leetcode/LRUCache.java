@@ -1,15 +1,17 @@
 package leetcode;
 
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class LRUCache {
-    private LinkedHashMap<Integer, Integer> map;
+    private Map<Integer, Integer> map;
     private int size;
 
     public LRUCache(int size) {
         this.size = size;
-        this.map = new LinkedHashMap<>();
+        this.map = Collections.synchronizedMap(new LinkedHashMap<>());
     }
 
     public int get(int key) {
