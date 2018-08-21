@@ -22,10 +22,5 @@ public class LFUCacheTest {
         Assertions.assertEquals(-1,cache.get(2));
         Assertions.assertEquals(3,cache.get(3));      // returns 3.
     }
-    @Test
-    public void setLinkedListGetTest() {
-
-
-    }
 
 }
