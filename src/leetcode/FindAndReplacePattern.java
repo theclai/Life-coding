@@ -32,7 +32,7 @@ public class FindAndReplacePattern {
                     tag = false;
                     break;
 
-                } else if (charVisits != null && charSeen != null) {
+                } else if (charVisits != null) {
                     if (charSeen != charP) {
                         tag = false;
                     }
