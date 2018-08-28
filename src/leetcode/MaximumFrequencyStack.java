@@ -90,8 +90,6 @@ public class MaximumFrequencyStack {
         int index = queue.lastIndexOf(item);
         //remove from the queue
         queue.remove(index);
-        //TODO never update the counter
-
         //remove the item from the frequency and item queue
         maxFrequency.removeLast();
 
