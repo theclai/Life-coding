@@ -5,14 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class LFUCacheTest {
     static LFUCache cache;
-    public static void main(String[] args){
-        cache=new LFUCache(5);
-        cache.set(1, 1);
-        cache.set(2, 2);
-        System.out.println(cache.get(1));
 
-    }
-/*
     public LFUCacheTest() {
         cache = new LFUCache(5);
     }
@@ -29,10 +22,5 @@ public class LFUCacheTest {
         Assertions.assertEquals(-1,cache.get(2));
         Assertions.assertEquals(3,cache.get(3));      // returns 3.
     }
-    @Test
-    public void setLinkedListGetTest() {
 
-
-    }
-    */
 }

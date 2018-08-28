@@ -28,6 +28,7 @@ public class LFUCache {
         // remove the element from the counter to linkedhashset
         lists.get(count).remove(key);
 
+        // when current min does not have any data, next one would be the min
         if (count == min && lists.get(count).size() == 0)
             min++;
         if (!lists.containsKey(count + 1))
@@ -41,6 +42,7 @@ public class LFUCache {
             return;
         if (cache.containsKey(key)) {
             cache.put(key, value);
+
             get(key);
             return;
         }
@@ -50,6 +52,7 @@ public class LFUCache {
             cache.remove(evit);
         }
         cache.put(key, value);
+
         counts.put(key, 1);
         min = 1;
         lists.get(1).add(key);
