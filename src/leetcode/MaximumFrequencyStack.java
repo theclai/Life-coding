@@ -6,19 +6,31 @@ import java.util.LinkedList;
 public class MaximumFrequencyStack {
     public static void main(String[] args) {
         MaximumFrequencyStack mfs = new MaximumFrequencyStack();
-        mfs.push(1);
-        mfs.push(2);
+
+        mfs.push(4);
+        mfs.push(0);
+        mfs.push(9);
         mfs.push(3);
+        mfs.push(4);
+        mfs.push(2);
+        mfs.pop();
+        mfs.push(6);
+        mfs.pop();
         mfs.push(1);
+        mfs.pop();
+        mfs.push(4);
+        mfs.pop();
+        mfs.pop();
+        mfs.pop();
+        mfs.pop();
+        mfs.pop();
+        mfs.pop();
+
+
 
         System.out.println(mfs.pop());
         System.out.println(mfs.pop());
 
-//        System.out.println(mfs.queue.getLast());
-//
-        //      int pos = mfs.queue.lastIndexOf(1);
-//        mfs.queue.remove(3);
-        //    System.out.println(pos);
 
 
     }
@@ -54,20 +66,31 @@ public class MaximumFrequencyStack {
             a.add(Integer.MAX_VALUE);
             frequencyAndItems.add(a);
         }
-        frequencyAndItems.get(count).add(x);
+        try{
+            frequencyAndItems.get(count).add(x);
+        }catch (IndexOutOfBoundsException iex){
+            System.out.println(x+" "+ count);
+        }
+
     }
 
     public int pop() {
+
         int size = frequencyAndItems.size() - 1;
         // Get the max frequency
         LinkedList<Integer> maxFrequency = frequencyAndItems.get(size);
         // find the element to remove
         Integer item = maxFrequency.getLast();
+        // Update the counter
+        int c = counter.get(item);
+        c=c-1;
+        counter.put(item,c);
 
         // get the position of the item in the queue
         int index = queue.lastIndexOf(item);
         //remove from the queue
         queue.remove(index);
+        //TODO never update the counter
 
         //remove the item from the frequency and item queue
         maxFrequency.removeLast();
