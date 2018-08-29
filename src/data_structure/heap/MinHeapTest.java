@@ -15,6 +15,15 @@ public class MinHeapTest {
     public void getParentTest(){
         int parent = minHeap.getParent(3);
         Assertions.assertEquals(8,parent);
-
+    }
+    @Test
+    public void getLeftTest(){
+        int parent = minHeap.getLeft(2);
+        Assertions.assertEquals(12,parent);
+    }
+    @Test
+    public void getRightTest(){
+        int parent = minHeap.getRight(0);
+        Assertions.assertEquals(9,parent);
     }
 }
