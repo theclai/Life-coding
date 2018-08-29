@@ -36,4 +36,12 @@ public class MinHeapTest {
         Assertions.assertEquals(minHeap.data[1],11);
         Assertions.assertEquals(minHeap.data[6],8);
     }
+
+    @Test
+    public void buildTest(){
+        minHeap.buildMeanHeap(minHeap.data,0);
+        for(int i=0;i<minHeap.data.length;i++){
+            System.out.println(minHeap.data[i]);
+        }
+    }
 }
