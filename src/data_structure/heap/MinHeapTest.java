@@ -6,24 +6,34 @@ import org.junit.jupiter.api.Test;
 
 public class MinHeapTest {
     MinHeap minHeap;
-    @BeforeEach
-    public void init(){
-        minHeap=new MinHeap();
 
+    @BeforeEach
+    public void init() {
+        minHeap = new MinHeap();
     }
+
     @Test
-    public void getParentTest(){
+    public void getParentTest() {
         int parent = minHeap.getParent(3);
-        Assertions.assertEquals(8,parent);
+        Assertions.assertEquals(8, parent);
     }
+
     @Test
-    public void getLeftTest(){
+    public void getLeftTest() {
         int parent = minHeap.getLeft(2);
-        Assertions.assertEquals(12,parent);
+        Assertions.assertEquals(12, parent);
     }
+
     @Test
-    public void getRightTest(){
+    public void getRightTest() {
         int parent = minHeap.getRight(0);
-        Assertions.assertEquals(9,parent);
+        Assertions.assertEquals(9, parent);
+    }
+
+    @Test
+    public void swapTest(){
+        minHeap.swap(1,6);
+        Assertions.assertEquals(minHeap.data[1],11);
+        Assertions.assertEquals(minHeap.data[6],8);
     }
 }
