@@ -1,13 +1,11 @@
 package leetcode;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class SkypeCallAvgPerDay {
     /**
@@ -17,13 +15,13 @@ public class SkypeCallAvgPerDay {
     /**
      * Key will the date, I am using string here
      */
-    HashMap<String, LinkedHashMap<UUID, SkypeSession>> sessions;
+    ConcurrentHashMap<String, LinkedHashMap<UUID, SkypeSession>> sessions;
     private int totalSession = 0;
     private int totalDuration = 0;
     private int avgDurationPerDay;
 
     public SkypeCallAvgPerDay() {
-        sessions = new HashMap<>();
+        sessions = new ConcurrentHashMap<>();
         avgDurationPerDay=0;
     }
 
