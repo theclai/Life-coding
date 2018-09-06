@@ -61,15 +61,18 @@ public class MinHeap {
     }
 
 
+    // Peek the root element of the heap which is the min
     public int min() {
         if (size == 0) throw new IllegalArgumentException("There is no data in the array");
         return data[0];
     }
 
+
     /**
      * find the min element and remove from the data
      */
     public int minAndRemove() {
+        if(size==0) throw new IllegalStateException();
         // find the min
         int min = min();
 
@@ -82,12 +85,6 @@ public class MinHeap {
         heapifyDown();
         return min;
 
-    }
-
-    /**
-     * It heapify from top to bottom since violation happened on the top
-     */
-    private void heapifyDown() {
     }
 
     /**
@@ -107,6 +104,51 @@ public class MinHeap {
             swap(s, smallestPosition);
             buildMeanHeap(A, smallestPosition);
         }
+    }
+
+    public void add(int item){
+        ensureExtraCapacity();
+        data[size]=item;
+        size++;
+        heapifyUp();
+    }
+
+    private void heapifyUp() {
+        int index=size-1;
+        // Keep going up as long as you have parents
+        // and swap if the parent is bigger
+        while(hasParent(index) && getParent(index)>data[index]){
+            swap(getParentIndex(index),index);
+            // After moving up change the pointer to it
+            index=getParentIndex(index);
+        }
+
+    }
+
+
+    /**
+     * It heapify from top to bottom since violation happened on the top
+     */
+    private void heapifyDown() {
+        int index =  0;
+        //We need to check only left child because if there
+        //is not left child, it wont have right child at all
+        while(hasLeftChild(index)){
+            // Get smaller child
+            int smallerChildIndex = getLeftChildIndex(index);
+            if(hasRightChild(index) && getRight(index)<getLeft(index)){
+                smallerChildIndex= getRightChildIndex(index);
+            }
+            if(data[index]<data[smallerChildIndex]){
+                break;
+            }else{
+                swap(index,smallerChildIndex);
+            }
+            index=smallerChildIndex;
+
+        }
+
+
     }
 
 
