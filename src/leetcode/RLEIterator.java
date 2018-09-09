@@ -1,14 +1,10 @@
 package leetcode;
-
-import java.util.ArrayList;
-//3,8,0,9,2,5
 /**
  * For example: [3,8,0,9,2,5] gets expanded and stored as 3 times 8, 0 times 9 and 2 times 5 i.e., [8,8,8,5,5]. When next() gets called with n = 2,
  * remove first 2 elements from the array from front and return the last element.
  * */
 public class RLEIterator {
     private int[] seq;
-    private int iteratorCounter;
     private int index=0;
     private int len;
 
@@ -29,10 +25,8 @@ public class RLEIterator {
                     seq[index]=seq[index]-n;
                     return seq[index+1];
                 }
-
             }
         }
         return -1;
-
     }
 }
