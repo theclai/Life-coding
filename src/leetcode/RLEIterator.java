@@ -2,38 +2,37 @@ package leetcode;
 
 import java.util.ArrayList;
 //3,8,0,9,2,5
+/**
+ * For example: [3,8,0,9,2,5] gets expanded and stored as 3 times 8, 0 times 9 and 2 times 5 i.e., [8,8,8,5,5]. When next() gets called with n = 2,
+ * remove first 2 elements from the array from front and return the last element.
+ * */
 public class RLEIterator {
     private int[] seq;
     private int iteratorCounter;
+    private int index=0;
+    private int len;
 
     public RLEIterator(int[] A) {
-        ArrayList<Integer> seqList = new ArrayList<>();
-        int c=0;
-        while(c<A.length){
-            int counter= A[c];
-            int target=A[c+1];
-
-            for(int i=0;i<counter;i++){
-                seqList.add(target);
-            }
-            c+=2;
-        }
-        iteratorCounter = 0;
-        seq= new int[seqList.size()];
-        for(int i=0;i<seqList.size();i++){
-            seq[i]=seqList.get(i);
-        }
-        seqList.clear();
+        this.seq=A;
+        this.len=A.length;
     }
 
     public int next(int n) {
-        int prev = iteratorCounter;
-        int f = iteratorCounter + n;
-        iteratorCounter = iteratorCounter + n;
-        if (iteratorCounter >= seq.length) {
-            return -1;
+        if(n>0){
+            while(index<len){
+                if(seq[index]==0){ // move to step forward if 0
+                    index+=2;
+                }else if(seq[index]<n){
+                    n=n-seq[index];
+                    index+=2;
+                }else if(seq[index]>=n){ // if the number of times is bigger, update the value of that index
+                    seq[index]=seq[index]-n;
+                    return seq[index+1];
+                }
+
+            }
         }
-        return seq[f - 1];
+        return -1;
 
     }
 }
