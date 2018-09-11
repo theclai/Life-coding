@@ -20,25 +20,4 @@ public class ValidPermutationOfDISequence {
         }
         return dp[0];
     }
-
-    public int compute(String S) {
-        int n = S.length();
-        int mod = (int) 1e9 + 7;
-        int[] dp = new int[n + 1];
-        int[] dp2 = new int[n + 1];
-        for(int j=0;j<n;j++)
-            dp[j]=1;
-        for(int i=0;i<n;i++){
-            if(S.charAt(i)=='I')
-                break;
-            else
-                for(int j=n-i-1,cur=0;j>=0;j--) {
-                    cur = (cur + dp[j + 1]) % mod;
-                    dp2[j] = cur;
-                }
-            dp=dp2;
-
-        }
-        return dp[0];
-    }
 }
