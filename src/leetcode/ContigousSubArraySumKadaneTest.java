@@ -8,6 +8,6 @@ public class ContigousSubArraySumKadaneTest {
     @Test
     public void algoTest(){
         algo=new ContigousSubArraySumKadane();
-        algo.sum(input);
+        algo.subSum(input);
     }
 }
