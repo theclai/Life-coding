@@ -14,18 +14,21 @@ public class LinkedListCycle_142 {
     }
 
     public ListNode detectCycle(ListNode head) {
-        if(head==null){
-            return null;
-        }
-        ListNode tortoise=head;
-        ListNode hare=head;
-        while(tortoise!=null && hare!=null && hare.next!=null){
-            tortoise=head.next;
-            hare=head.next.next;
-            if(tortoise==hare){
-                return tortoise;
-            }
+        ListNode slow = head;
+        ListNode fast = head;
 
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+
+            if (fast == slow) {
+                ListNode slow2 = head;
+                while (slow2 != slow) {
+                    slow = slow.next;
+                    slow2 = slow2.next;
+                }
+                return slow;
+            }
         }
         return null;
 
