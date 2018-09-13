@@ -11,27 +11,13 @@ public class FindingMiddleOfLinkedList {
     }
 
     public ListNode findMiddle(ListNode root) {
-        if(root==null){
-            return null;
+
+        ListNode slow = root, fast = root;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
-
-        ListNode first=root;
-        ListNode second=root;
-
-        while(first!=null && second!=null){
-            if(second.next!=null){
-                second=second.next.next;
-            }else{
-                second=null;
-            }
-
-            if(second==null){
-                return first;
-            }
-            first=first.next;
-
-        }
-        return first;
+        return slow;
 
     }
 }
