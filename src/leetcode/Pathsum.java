@@ -38,12 +38,26 @@ public class Pathsum {
         }
     }
 
-    public static boolean hasPathSum(Node root, int sum) {
-        if(sum==compute(root,0)){
-            return true;
+    public static boolean hasPathSum(Node node, int sum) {
+        if(node==null){
+            return false;
         }
-        return false;
+        if (node == null)
+            return (sum == 0);
+        else
+        {
+            boolean ans = false;
 
+            /* otherwise check both subtrees */
+            int subsum = sum - node.val;
+            if (subsum == 0 && node.left == null && node.right == null)
+                return true;
+            if (node.left != null)
+                ans = ans || hasPathSum(node.left, subsum);
+            if (node.right != null)
+                ans = ans || hasPathSum(node.right, subsum);
+            return ans;
+        }
     }
 
     private static int compute(Node root,int tempsum) {
