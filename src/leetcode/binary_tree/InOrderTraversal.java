@@ -1,6 +1,10 @@
 package leetcode.binary_tree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class InOrderTraversal {
+    static List<Integer> list = new ArrayList<>();
 
     public static class TreeNode {
         int val;
@@ -11,12 +15,13 @@ public class InOrderTraversal {
             val = x;
         }
     }
-    public static void main(String[] args){
-        TreeNode root= new TreeNode(1);
-        root.left=new TreeNode(2);
-        root.right=new TreeNode(3);
-        root.left.left=new TreeNode(4);
-        root.left.right= new TreeNode(5);
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(3);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
         System.out.println("Inorder Traversal: ");
         inOrderTraversal(root);
         System.out.println();
@@ -31,28 +36,34 @@ public class InOrderTraversal {
 
     }
 
-    private static void postOrderTraversal(TreeNode root) {
-        if(root==null)
-            return;
+    private static List<Integer> postOrderTraversal(TreeNode root) {
+        if (root == null)
+            return list;
         postOrderTraversal(root.left);
         postOrderTraversal(root.right);
-        System.out.print(root.val+"->");
+        list.add(root.val);
+        System.out.print(root.val + "->");
+        return list;
     }
 
-    public static void inOrderTraversal(TreeNode root){
-        if(root==null)
-            return;
+    public static List<Integer> inOrderTraversal(TreeNode root) {
+        if (root == null)
+            return list;
         inOrderTraversal(root.left);
-        System.out.print(root.val+"->");
+        System.out.print(root.val + "->");
+        list.add(root.val);
         inOrderTraversal(root.right);
+        return list;
     }
 
-    public static void preOrderTraversal(TreeNode node){
-        if(node==null)
-            return;
-        System.out.print(node.val+"->");
+    public static List<Integer> preOrderTraversal(TreeNode node) {
+        if (node == null)
+            return list;
+        System.out.print(node.val + "->");
+        list.add(node.val);
         preOrderTraversal(node.left);
         preOrderTraversal(node.right);
+        return list;
 
     }
 }
