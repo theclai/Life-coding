@@ -1,28 +1,39 @@
 package leetcode.binary_tree;
 
 public class ValidateBST_98 {
+    public static void main(String[] args){
+        TreeNode root=new TreeNode(1);
+        root.left=new TreeNode(2);
+        root.right=new TreeNode(3);
+        root.left.left=new TreeNode(4);
+        root.left.right=new TreeNode(5);
+        boolean valid=isValidBST(root);
+        System.out.println(valid);
+    }
     /**
      * Left key has to be in range l,w
      * and right has to be in range of w,r
      * <p>
      * initial l=-INF and l=INF
      */
-    public boolean isValidBST(TreeNode root) {
+    public static boolean isValidBST(TreeNode root) {
         return isKeysInRange(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    private boolean isKeysInRange(TreeNode root, int minValue, int maxValue) {
+    private static boolean isKeysInRange(TreeNode root, int minValue, int maxValue) {
         if (root == null) {
             return true;
         } else if ((Integer.compare(root.val, minValue) < 0) ||
                 (Integer.compare(root.val, maxValue) > 0)) {
             return false;
         }
-        return isKeysInRange(root.left, minValue, root.val) &&
-                isKeysInRange(root.right, root.val, maxValue);
+        boolean left=isKeysInRange(root.left, minValue, root.val);
+        boolean right=isKeysInRange(root.right, root.val, maxValue);
+        return  left && right;
+
     }
 
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
