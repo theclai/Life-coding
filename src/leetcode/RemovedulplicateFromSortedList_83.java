@@ -12,9 +12,7 @@ public class RemovedulplicateFromSortedList_83 {
             }
             newMember.next=distinct;
             newMember=distinct;
-
         }
         return head;
-
     }
 }
