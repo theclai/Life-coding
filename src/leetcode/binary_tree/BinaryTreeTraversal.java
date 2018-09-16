@@ -3,7 +3,7 @@ package leetcode.binary_tree;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InOrderTraversal {
+public class BinaryTreeTraversal {
     static List<Integer> list = new ArrayList<>();
 
     public static class TreeNode {
