@@ -17,14 +17,14 @@ public class ValidateBST_98 {
      * initial l=-INF and l=INF
      */
     public static boolean isValidBST(TreeNode root) {
-        return isKeysInRange(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        return isKeysInRange(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    private static boolean isKeysInRange(TreeNode root, int minValue, int maxValue) {
+    private static boolean isKeysInRange(TreeNode root, long minValue, long maxValue) {
         if (root == null) {
             return true;
-        } else if ((Integer.compare(root.val, minValue) < 0) ||
-                (Integer.compare(root.val, maxValue) > 0)) {
+        } else if ((Long.compare(root.val, minValue) < 0) ||
+                (Long.compare(root.val, maxValue) > 0)) {
             return false;
         }
         boolean left=isKeysInRange(root.left, minValue, root.val);
