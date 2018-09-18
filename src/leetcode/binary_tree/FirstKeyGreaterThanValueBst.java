@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FirstKeyGreaterThanValueBst {
-    static List<TreeNode> list=new ArrayList<>();
+    static List<TreeNode> list = new ArrayList<>();
 
     public static class TreeNode {
         int val;
@@ -34,7 +34,9 @@ public class FirstKeyGreaterThanValueBst {
         root.right.left.right.left = new TreeNode(29);
 
         TreeNode output = find(root, 23, null);
+        TreeNode op=findAdvance(root,23);
         System.out.println(output.val);
+        System.out.println(op.val);
 
 
     }
@@ -55,7 +57,21 @@ public class FirstKeyGreaterThanValueBst {
             //root=root.right;
             find(root.right, key, result);
         }
-        return list.get(list.size()-1);
+        return list.get(list.size() - 1);
+
+    }
+
+    private static TreeNode findAdvance(TreeNode root, int key) {
+        TreeNode subtree = root, firstSoFar = null;
+        while (subtree != null) {
+            if (subtree.val > key) {
+                firstSoFar = subtree;
+                subtree = subtree.left;
+            } else {
+                subtree = subtree.right;
+            }
+        }
+        return firstSoFar;
 
     }
 }
