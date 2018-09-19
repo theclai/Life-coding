@@ -18,7 +18,6 @@ public class ChainedMatrixMultiplication {
                 dump = "(" + beg + ")" + in;
                 System.out.println(dump);
             }
-
             beg = beg + in.substring(0, pos + 1);
             compute(in.substring(pos + 1, in.length()), pos);
         }
