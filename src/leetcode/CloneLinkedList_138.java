@@ -16,7 +16,9 @@ public class CloneLinkedList_138 {
     }
 
     public static void main(String[] args) {
-
+        /**
+         * Create your list and use the method below
+         * */
     }
 
     public RandomListNode copyRandomList(RandomListNode head) {
@@ -35,10 +37,9 @@ public class CloneLinkedList_138 {
         // Copy random pointers
         nCurr = head;
         while (nCurr != null) {
-            if(nCurr.random!=null){
+            if (nCurr.random != null) {
                 nCurr.next.random = nCurr.random.next;
             }
-
             nCurr = nCurr.next.next;
         }
 
@@ -50,9 +51,6 @@ public class CloneLinkedList_138 {
             nCurr.next = nCurr.next.next;
             nCurr = tmp;
         }
-
         return copy;
     }
-
-
 }
