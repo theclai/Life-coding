@@ -1,6 +1,6 @@
 package leetcode;
 
-public class MaxSizeSubMatrix {
+public class MaxSizeSubMatrix_221 {
     public static void main(String[] args) {
         int M[][] = {
                 {0, 1, 1, 0, 1},
