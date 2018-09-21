@@ -10,8 +10,8 @@ public class MaxSizeSubMatrix_221 {
                 {1, 1, 1, 1, 1},
                 {0, 0, 0, 0, 0}
         };
-        //int result = findMaxSizeSubmatrix(M);
-        //System.out.println(result);
+        int result = findMaxSizeSubmatrix(M);
+        System.out.println(result);
 
         char[][] chars = new char[][]{{'1'}};
         int res= findMaxSizeSubmatrixLeetcode(chars);
