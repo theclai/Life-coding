@@ -1,7 +1,4 @@
 package leetcode.binary_tree;
-
-import leetcode.ListNode;
-
 import java.util.ArrayList;
 import java.util.List;
 
