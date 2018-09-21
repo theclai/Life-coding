@@ -17,11 +17,11 @@ public class MaxSizeSubMatrix {
     private static int findMaxSizeSubmatrix(int[][] m) {
         int row = m.length;
         int col = m[0].length;
+        int[][] copy = new int[row][col];
         if (row == 0)
             return 0;
         if (col == 0)
             return 0;
-        int[][] copy = new int[row][col];
 
         int max = 0;
 
@@ -31,11 +31,11 @@ public class MaxSizeSubMatrix {
                     if (m[i][j] == 1) {
                         copy[i][j] = 1;
                     } else {
-                        copy[i][j] = m[i][j];
+                        copy[i][j] = 0;
                     }
                 } else if (m[i][j] == 1) {
-                    copy[i][j] = Math.min(Math.min(m[i - 1][j], m[i][j - 1]),
-                            m[i - 1][j - 1]) + 1;
+                    copy[i][j] = Math.min(Math.min(copy[i - 1][j], copy[i][j - 1]),
+                            copy[i - 1][j - 1]) + 1;
                     if (max < copy[i][j])
                         max = copy[i][j];
                 }

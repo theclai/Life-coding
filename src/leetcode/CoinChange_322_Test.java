@@ -28,9 +28,4 @@ public class CoinChange_322_Test {
     }
 
 
-    @Test
-    public void countTestSecond(){
-        int expected=coinChange.coinChange(coins1,amt1);
-        Assertions.assertEquals(expected,groundTruth1);
-    }
 }
