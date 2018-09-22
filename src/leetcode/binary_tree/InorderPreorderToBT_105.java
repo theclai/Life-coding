@@ -1,10 +1,10 @@
 package leetcode.binary_tree;
 
-public class InorderPreorderToBT {
+public class InorderPreorderToBT_105 {
     static int preIndex=0;
     public static void main(String[] args) {
-        char[] in = new char[]{'D', 'B', 'E', 'A', 'F', 'C'};
-        char[] pre = new char[]{'A', 'B', 'D', 'E', 'C', 'F'};
+        char[] in = new char[]{'D', 'B', 'E', 'A', 'F', 'C'};//LDR
+        char[] pre = new char[]{'A', 'B', 'D', 'E', 'C', 'F'};//DLR
 
         buildTree(in, pre);
     }
@@ -30,7 +30,6 @@ public class InorderPreorderToBT {
         root.left = buildHelper(in, pre, start, searchOutput - 1);
         root.right = buildHelper(in, pre, searchOutput + 1, end);
         return root;
-
     }
 
     static int search(char arr[], int strt, int end, char value) {
