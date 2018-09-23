@@ -20,12 +20,10 @@ public class InorderPreorderToBT_105 {
         if (end < start) {
             return null;
         }
-
         TreeNode root=new TreeNode(pre[preIndex++]);
         if (start == end) {
             return root;
         }
-
         int searchOutput = search(in, start, end, root.data);
         root.left = buildHelper(in, pre, start, searchOutput - 1);
         root.right = buildHelper(in, pre, searchOutput + 1, end);
