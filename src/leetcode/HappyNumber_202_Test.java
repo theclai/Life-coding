@@ -13,8 +13,8 @@ public class HappyNumber_202_Test {
     }
     @Test
     public void test(){
-        int n=19;
-        boolean exp=happyNumber.findHappy(n);
+        int n=7;
+        boolean exp=happyNumber.isHappy(n);
         Assertions.assertEquals(exp,true);
     }
 }
