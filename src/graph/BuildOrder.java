@@ -40,11 +40,7 @@ public class BuildOrder {
             if (!visited[i])
                 helper(i, g, visited, stack);
         }
-
-        Iterator<Integer> it=stack.iterator();
-        while (it.hasNext()){
-            System.out.println(it.next());
-        }
+        stack.forEach(data->System.out.println(data));
     }
 
     private static void helper(int cur,
@@ -52,7 +48,6 @@ public class BuildOrder {
                                boolean[] visited,
                                Queue<Integer> stack) {
         visited[cur] = true;
-
         Iterator<Integer> iterator = g.adj[cur].iterator();
         while (iterator.hasNext()) {
             Integer data = iterator.next();
