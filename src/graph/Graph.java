@@ -6,11 +6,11 @@ public class Graph {
     /**
      * Vertices
      */
-    int V;
+    public int V;
     /**
      * Edges for a particular vertices
      */
-    private LinkedList<Integer> adj[];
+    public LinkedList<Integer> adj[];
 
     /**
      * @param v Number of Vertices
