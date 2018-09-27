@@ -12,7 +12,6 @@ public class TopologicalSort {
         g.addEdge(4, 1);
         g.addEdge(2, 3);
         g.addEdge(3, 1);
-
         System.out.println("Following is a Topological " +
                 "sort of the given graph");
         topologicalSort(g);
@@ -36,7 +35,6 @@ public class TopologicalSort {
             if (!visited[i])
                 helper(g, tempStack, visited, i);
         }
-
         while (!tempStack.empty())
             System.out.print(tempStack.pop() + " ");
 

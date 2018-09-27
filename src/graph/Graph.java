@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class Graph {
     /**
-     * Vertices
+     * Number of vertices
      */
     public int V;
     /**
