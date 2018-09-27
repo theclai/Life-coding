@@ -37,7 +37,7 @@ public class TopologicalSort {
                 helper(g, tempStack, visited, i);
         }
 
-        while (tempStack.empty() == false)
+        while (!tempStack.empty())
             System.out.print(tempStack.pop() + " ");
 
     }
