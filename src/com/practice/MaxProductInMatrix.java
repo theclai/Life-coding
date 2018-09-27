@@ -10,10 +10,10 @@ public class MaxProductInMatrix {
         int row = matrix.length;
         int col = matrix[0].length;
         System.out.println(maxProduct(matrix, row - 1, col - 1));
-        System.out.println(maxProductAdvance(matrix));
+        System.out.println(matrixProductAdvance(matrix));
     }
 
-    private static int maxProductAdvance(int[][] matrix) {
+    private static int matrixProductAdvance(int[][] matrix) {
         // We need two caches to process negative number.
         int[][] minCache = new int[matrix.length][matrix[0].length];
         int[][] maxCache = new int[matrix.length][matrix[0].length];
@@ -26,7 +26,7 @@ public class MaxProductInMatrix {
                 }
             }
         }
-        return maxCache[matrix.length][matrix[0].length];
+        return maxCache[matrix.length-1][matrix[0].length-1];
     }
 
     private static int maxProduct(int[][] matrix, int row, int col) {
