@@ -1,6 +1,8 @@
 package leetcode.binary_tree;
 
 
+import leetcode.TreeNode;
+
 public class SymmetricBinaryTree {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(4);

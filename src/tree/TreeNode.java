@@ -1,16 +1,16 @@
 package tree;
 
 public class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    char data;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
+    public char data;
 
-    TreeNode(int x) {
+    public TreeNode(int x) {
         val = x;
     }
 
-    TreeNode(char x) {
+    public TreeNode(char x) {
         data = x;
     }
 }

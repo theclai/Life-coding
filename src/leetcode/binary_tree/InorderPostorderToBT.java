@@ -1,5 +1,7 @@
 package leetcode.binary_tree;
 
+import tree.TreeNode;
+
 public class InorderPostorderToBT {
     static int postIndex = 0;
 

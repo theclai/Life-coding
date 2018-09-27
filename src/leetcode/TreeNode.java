@@ -1,11 +1,11 @@
 package leetcode;
 
 public class TreeNode {
-    int data,val;
-    TreeNode left, right;
-    TreeNode parent;
+    public int data,val;
+    public TreeNode left, right;
+    public TreeNode parent;
 
-    TreeNode(int value) {
+    public TreeNode(int value) {
         data = value;
         this.val=value;
         left = right = null;

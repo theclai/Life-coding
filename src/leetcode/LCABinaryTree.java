@@ -13,7 +13,7 @@ public class LCABinaryTree {
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(7);
 
-        TreeNode node = lca(root, 4, 5);
+        TreeNode node = lca(root, 4, 7);
         System.out.println(node.data);
     }
 
