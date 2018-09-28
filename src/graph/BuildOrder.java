@@ -36,11 +36,12 @@ public class BuildOrder {
     private static void buildOrder(Graph g) {
         boolean[] visited = new boolean[g.V];
         Queue<Integer> stack = new LinkedList<>();
+
         for (int i = 0; i < g.V; i++) {
             if (!visited[i])
                 helper(i, g, visited, stack);
         }
-        stack.forEach(data->System.out.println(data));
+        stack.forEach(System.out::println);
     }
 
     private static void helper(int cur,
