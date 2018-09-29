@@ -43,10 +43,12 @@ public class PreorderTraversalWithoutRecursion {
             TreeNode curr=stack.removeFirst();
             result.add(curr.val);
 
+            // You need add left later becasue of the stack structure.
             if(curr.right!=null){
                 stack.addFirst(curr.right);
             }
 
+            // Last add first out, left will pop before right
             if(curr.left!=null){
                 stack.addFirst(curr.left);
             }
