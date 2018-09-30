@@ -4,6 +4,10 @@ import leetcode.TreeNode;
 
 import java.util.LinkedList;
 
+/***
+ * Creating a linked list from the leaves of the binary tree
+ * Traverse from left to right.
+ * */
 public class LinkedListFromLeavesOfBinaryTree {
     private static TreeNode root;
 
