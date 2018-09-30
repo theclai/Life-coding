@@ -1,7 +1,5 @@
 package leetcode.binary_tree;
-
 import leetcode.TreeNode;
-
 import java.util.LinkedList;
 
 /***
