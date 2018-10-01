@@ -1,5 +1,4 @@
 package kickstart;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -23,7 +22,7 @@ public class SubstringAnangram {
             List<String> subsB=subStringOfA(B,numOfChars);
 
             int returnNumerOfAnangram= ananGramCounter(subsA,subsB);
-            
+
         }
 
     }
