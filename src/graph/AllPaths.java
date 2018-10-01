@@ -10,7 +10,6 @@ public class AllPaths {
 
     public static void main(String[] args) {
         Graph g = new Graph(4);
-
         g.addEdge(0, 1);
         g.addEdge(0, 3);
         g.addEdge(0, 2);
@@ -20,14 +19,12 @@ public class AllPaths {
         visited = new boolean[4];
         result = new ArrayList<>();
         localList = new ArrayList<>();
-
         findAllPathsFromSourceTarget(g, 2, 3);
     }
 
     private static List<List<Integer>> findAllPathsFromSourceTarget(Graph graph,
                                                                     int source,
                                                                     int target) {
-
         if (source == target) {
             result.add(localList);
         }
