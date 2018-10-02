@@ -59,38 +59,56 @@ public class IntervalTree {
         };
         int n = intervals.length;
         IntrvalTree root = null;
-        for (int i = 0; i < n; i++)
-            root = insert(root, intervals[i]);
+        for (int i = 0; i < n; i++) {
+            IntrvalTree intrvalTree = new IntrvalTree(intervals[i][0], intervals[i][1]);
+            root = insert(root, intrvalTree);
+        }
 
         System.out.println(root);
+        System.out.println(overlapSearch(root,new IntrvalTree(17,19)));
 
     }
 
     private static IntrvalTree insert(IntrvalTree root,
-                                      int[] interval) {
+                                      IntrvalTree intrvalTree) {
         if (root == null) {
-            root = new IntrvalTree(interval[0], interval[1]);
-            root.setMax(interval[1]);
+            root = intrvalTree;
+            root.setMax(intrvalTree.high);
             return root;
         }
-        int high = interval[1];
-        if (high >= root.getMax()) {
-            root.right = insert(root.right, interval);
+        if (intrvalTree.high >= root.getMax()) {
+            root.right = insert(root.right, intrvalTree);
         } else {
-            root.left = insert(root.left, interval);
+            root.left = insert(root.left, intrvalTree);
         }
-        if (root.max < high)
-            root.max = high;
+        if (root.max < intrvalTree.high)
+            root.max = intrvalTree.high;
         return root;
     }
 
-    private static boolean doOVerlap(int[] interval1, int[] interval2) {
-        int i1Low=interval1[0];
-        int i1High=interval1[1];
+    public static IntrvalTree overlapSearch(IntrvalTree root, IntrvalTree intrvalTree) {
+        // Base Case, tree is empty
+        if (root == null) return null;
 
-        int i2Low=interval2[0];
-        int i2High=interval2[1];
-        if (i1Low < i2High && i2Low < i1High)
+        // If given interval overlaps with root
+        if (doOVerlap(root, intrvalTree)) {
+            root = intrvalTree;
+            return root;
+        }
+
+        // If left child of root is present and max of left child
+        // is greater than or equal to given interval, then i may
+        // overlap with an interval is left subtree
+        if (root.left != null && root.left.max >= intrvalTree.low) {
+            return overlapSearch(root.left, intrvalTree);
+        }
+
+        // Else interval can only overlap with right subtree
+        return overlapSearch(root.right, intrvalTree);
+    }
+
+    private static boolean doOVerlap(IntrvalTree interval1, IntrvalTree interval2) {
+        if (interval1.low < interval2.high && interval2.low < interval1.high)
             return true;
         return false;
     }
