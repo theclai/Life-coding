@@ -93,6 +93,7 @@ public class IntervalTree {
         // If given interval overlaps with root
         if (doOVerlap(root, intrvalTree)) {
             root = intrvalTree;
+            System.out.println("found");
             return root;
         }
 
