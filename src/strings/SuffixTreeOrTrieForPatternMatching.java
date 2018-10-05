@@ -18,7 +18,6 @@ public class SuffixTreeOrTrieForPatternMatching {
             this.key = c;
             this.map = new HashMap<>();
         }
-
         SuffixTree() {
             this.map = new HashMap<>();
         }
@@ -48,7 +47,7 @@ public class SuffixTreeOrTrieForPatternMatching {
         return root;
     }
 
-    public static boolean search(String search, SuffixTree root) {
+    static boolean search(String search, SuffixTree root) {
         SuffixTree searchNode = searchWord(search, root);
         if (searchNode != null && searchNode.isLeaf)
             return true;
@@ -57,20 +56,27 @@ public class SuffixTreeOrTrieForPatternMatching {
     }
 
     private static SuffixTree searchWord(String search, SuffixTree root) {
-        SuffixTree st=null;
+        SuffixTree st = null;
         for (int i = 0; i < search.length(); i++) {
-            char c=search.charAt(i);
-            HashMap<Character,SuffixTree> map=root.map;
-            if(map.containsKey(c)){
-                st=map.get(c);
-                if(st==null)
+            char c = search.charAt(i);
+            HashMap<Character, SuffixTree> map = root.map;
+            if (map.containsKey(c)) {
+                st = map.get(c);
+                if (st == null)
                     return st;
-                root=st;
+                root = st;
 
-            }else {
+            } else {
                 return null;
             }
         }
         return st;
+    }
+
+    public boolean startsWith(String prefix,SuffixTree root) {
+        if(searchWord(prefix,root) == null)
+            return false;
+        else
+            return true;
     }
 }
