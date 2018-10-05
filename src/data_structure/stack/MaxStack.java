@@ -26,7 +26,10 @@ public class MaxStack {
 
         System.out.println(pop());
         //System.out.println(pop());
+        System.out.println(max());
 
+        System.out.println(pop());
+        //System.out.println(pop());
         System.out.println(max());
 
     }
