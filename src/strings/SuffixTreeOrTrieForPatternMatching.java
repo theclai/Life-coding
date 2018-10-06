@@ -3,10 +3,11 @@ package strings;
 import java.util.HashMap;
 
 public class SuffixTreeOrTrieForPatternMatching {
+    private static SuffixTree root;
     public static void main(String[] args) {
-        SuffixTree root = new SuffixTree();
-        insert("amar", root);
-        System.out.println(search("amarf", root));
+         root = new SuffixTree();
+        insert("amar");
+        System.out.println(search("amarf"));
     }
 
     private static class SuffixTree {
@@ -24,7 +25,7 @@ public class SuffixTreeOrTrieForPatternMatching {
     }
 
 
-    static SuffixTree insert(String data, SuffixTree root) {
+    static void insert(String data) {
         char[] chars = data.toCharArray();
         HashMap<Character, SuffixTree> map = root.map;
         for (int i = 0; i < chars.length; i++) {
@@ -43,28 +44,26 @@ public class SuffixTreeOrTrieForPatternMatching {
             if (i == data.length() - 1)
                 st.isLeaf = true;
         }
-
-        return root;
     }
 
-    static boolean search(String search, SuffixTree root) {
-        SuffixTree searchNode = searchWord(search, root);
+    static boolean search(String search) {
+        SuffixTree searchNode = searchWord(search);
         if (searchNode != null && searchNode.isLeaf)
             return true;
         else
             return false;
     }
 
-    private static SuffixTree searchWord(String search, SuffixTree root) {
+    private static SuffixTree searchWord(String search) {
         SuffixTree st = null;
+        HashMap<Character, SuffixTree> map = root.map;
         for (int i = 0; i < search.length(); i++) {
             char c = search.charAt(i);
-            HashMap<Character, SuffixTree> map = root.map;
             if (map.containsKey(c)) {
                 st = map.get(c);
                 if (st == null)
                     return st;
-                root = st;
+                map = st.map;
 
             } else {
                 return null;
@@ -73,8 +72,8 @@ public class SuffixTreeOrTrieForPatternMatching {
         return st;
     }
 
-    public boolean startsWith(String prefix,SuffixTree root) {
-        if(searchWord(prefix,root) == null)
+    public boolean startsWith(String prefix) {
+        if(searchWord(prefix) == null)
             return false;
         else
             return true;
