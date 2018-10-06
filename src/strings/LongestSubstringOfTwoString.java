@@ -15,8 +15,8 @@ package strings;
 
 public class LongestSubstringOfTwoString {
     public static void main(String[] args) {
-        String input1 = "acbb";
-        String input2 = "dbcb";
+        String input1 = "abcb";
+        String input2 = "ddcb";
         int longest = findLongestSusbstring(input1, input2);
         System.out.println(longest);
     }
