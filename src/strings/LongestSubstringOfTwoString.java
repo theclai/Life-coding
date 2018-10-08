@@ -30,6 +30,7 @@ public class LongestSubstringOfTwoString {
         if (row == 0 || col == 0)
             return 0;
         int[][] cache = new int[row][col];
+
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
                 if (cols[j] == rows[i]) {
