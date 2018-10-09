@@ -30,7 +30,6 @@ public class LongestPalindromicSubstring {
         String input1 = "cbbd";
         String input2 = reverseString(input1);
         System.out.println(input1 + "-->" + input2);
-
         System.out.println(findLongestPanlindrom(input1, reverseString(input1)));
     }
 
@@ -54,20 +53,27 @@ public class LongestPalindromicSubstring {
                         cache[i][j] = 1;
 
                     }
-                    if (cache[i][j] > max){
+                    if (cache[i][j] > max) {
                         max = cache[i][j];
-                        maxPos=i;
+                        maxPos = i;
                     }
                 }
             }
         }
-
         System.out.println("Max Position: " + maxPos);
         System.out.println("Max Length: " + max);
-        return input1.substring(maxPos+1-max,maxPos+1);
+        return input1.substring(maxPos + 1 - max, maxPos + 1);
     }
 
     private static String reverseString(String input1) {
         return new StringBuilder(input1).reverse().toString();
+    }
+
+    public String longestPalindrome(String s) {
+        if(s.length()==0)
+            return "";
+        String input1=s;
+        String input2=new StringBuilder(s).reverse().toString();
+        return findLongestPanlindrom(input1,input2);
     }
 }
