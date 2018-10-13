@@ -1,4 +1,4 @@
-package com.practice;
+package practice;
 
 public class MaxSumSubArray {
     public static void main(String[] args) {

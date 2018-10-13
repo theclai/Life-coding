@@ -1,4 +1,4 @@
-package com.practice;
+package practice;
 
 import java.util.Hashtable;
 
