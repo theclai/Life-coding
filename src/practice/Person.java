@@ -1,4 +1,4 @@
-package com.practice;
+package practice;
 
 public class Person implements Cloneable {
     private Name name;

@@ -1,4 +1,4 @@
-package com.practice;
+package practice;
 
 import java.sql.Array;
 import java.util.ArrayList;

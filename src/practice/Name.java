@@ -1,4 +1,4 @@
-package com.practice;
+package practice;
 
 public class Name implements Cloneable {
     private String fName;

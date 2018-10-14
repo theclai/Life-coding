@@ -1,4 +1,4 @@
-package com.practice;
+package practice;
 
 public class ArrayOfSuffix {
     public static void main(String[] args) {
