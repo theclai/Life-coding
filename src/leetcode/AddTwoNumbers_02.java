@@ -18,7 +18,6 @@ public class AddTwoNumbers_02 {
         n2.next.next.next = null;*/
         //ListNode node = addTwoNumbers(n1, n2);
         ListNode node = addTwoNumbersSubmission(n1,n2);
-
         System.out.println(node);
 
     }

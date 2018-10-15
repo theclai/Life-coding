@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class MinHeap {
     int[] data;
-    int size = 0;
-    int capacity = 10;
+    private int size = 0;
+    private int capacity = 10;
 
     public MinHeap() {
         data = new int[capacity];
@@ -18,43 +18,43 @@ public class MinHeap {
         }
     }
 
-    public int getParent(int index) {
+    private int getParent(int index) {
         return data[getParentIndex(index)];
     }
 
-    public int getLeft(int index) {
+    private int getLeft(int index) {
         return data[getLeftChildIndex(index)];
     }
 
-    public int getRight(int index) {
+    private int getRight(int index) {
         return data[getRightChildIndex(index)];
     }
 
-    public int getParentIndex(int childIndex) {
+    private int getParentIndex(int childIndex) {
         return (childIndex - 1) / 2;
     }
 
-    public int getLeftChildIndex(int parent) {
+    private int getLeftChildIndex(int parent) {
         return 2 * parent + 1;
     }
 
-    public int getRightChildIndex(int parent) {
+    private int getRightChildIndex(int parent) {
         return 2 * parent + 2;
     }
 
-    public boolean hasLeftChild(int index) {
+    private boolean hasLeftChild(int index) {
         return getLeftChildIndex(index) < size;
     }
 
-    public boolean hasRightChild(int index) {
+    private boolean hasRightChild(int index) {
         return getRightChildIndex(index) < size;
     }
 
-    public boolean hasParent(int index) {
+    private boolean hasParent(int index) {
         return getParent(index) >= 0;
     }
 
-    public void swap(int indexOne, int indexTwo) {
+    private void swap(int indexOne, int indexTwo) {
         int temp = data[indexOne];
         data[indexOne] = data[indexTwo];
         data[indexTwo] = temp;
