@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class MinHeapTest {
     MinHeap minHeap;
-
+/*
     @BeforeEach
     public void init() {
         minHeap = new MinHeap();
@@ -43,5 +43,5 @@ public class MinHeapTest {
         for(int i=0;i<minHeap.data.length;i++){
             System.out.println(minHeap.data[i]);
         }
-    }
+    }*/
 }
