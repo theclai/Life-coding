@@ -14,3 +14,5 @@ with test cases.
 6. https://www.coursera.org/
 6. https://code.google.com/codejam/kickstart/
 7. https://www.pramp.com/dashboard
+7. https://www.youtube.com/channel/UCWSYAntBbdd2SLYUqPIxo0w
+8. https://www.byte-by-byte.com/
