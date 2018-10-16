@@ -5,6 +5,7 @@ public class MinStopCarFueling {
         int[] distance = new int[]{0, 200, 375, 550, 750, 950};
         int capacity = 400;
         int target = 950;
+        StringBuilder sb=new StringBuilder();
         System.out.println(findMinStop(distance, capacity, 0, target));
     }
 
