@@ -4,15 +4,21 @@ import java.util.HashMap;
 
 public class LongestNonRepeatingSubstring_3 {
     public static void main(String[] args) {
-        String in = "abcabcbb";
+        //String in = "abcabcbb";
         //String in="bbbbb";
         //String in="pwwkew";
+        String in="c";
 
-        System.out.println(findSubString(in));
+        System.out.println(lengthOfLongestSubstring(in));
 
     }
 
-    private static int findSubString(String in) {
+    private static int lengthOfLongestSubstring(String in) {
+        if(in.length()==0){
+            return 0;
+        }
+        if(in.equalsIgnoreCase(" "))
+            return 1;
         int start = 0;
         int end = 0;
         HashMap<Character, Integer> map = new HashMap<>();
@@ -32,6 +38,8 @@ public class LongestNonRepeatingSubstring_3 {
                 temp.append(in.charAt(start));
             }
 
+            if(temp.length()>currentMax.length())
+                currentMax=temp.toString();
             end++;
         }
         return currentMax.length();
