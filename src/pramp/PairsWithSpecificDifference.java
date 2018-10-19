@@ -35,7 +35,6 @@ public class PairsWithSpecificDifference {
         }
         for (int i = 0; i < input.length; i++) {
             int number = input[i];
-
             if (map.containsKey(number)) {
                 System.out.print(  map.get(number)+ " -> " +number);
                 System.out.println("");
