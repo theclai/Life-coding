@@ -21,40 +21,29 @@ public class LongPressedName {
     }
 
     public static boolean isLongPressedName(String name, String typed) {
-        if (typed.length() < name.length())
-            return false;
+        int j = 0;
+        for (char c: name.toCharArray()) {
+            if (j == typed.length())
+                return false;
 
-        if (name.equalsIgnoreCase(typed))
-            return true;
+            // If mismatch...
+            if (typed.charAt(j) != c) {
+                // If it's the first char of the block, ans is false.
+                if (j==0 || typed.charAt(j-1) != typed.charAt(j))
+                    return false;
 
-        char[] n = name.toCharArray();
-        char[] t = typed.toCharArray();
-        int i = 0;
-        int j = i;
+                // Discard all similar chars
+                char cur = typed.charAt(j);
+                while (j < typed.length() && typed.charAt(j) == cur)
+                    j++;
 
-        char prev='*';
-        boolean result=true;
-        while (i < n.length) {
-            char c = n[i];
-            System.out.println(c);
-
-            /*if(prev!='*' && c==prev){
-                j--;
-            }*/
-            prev=c;
-            if(j>=t.length ||c!=t[j]){
-                result= false;
-                break;
+                // If next isn't a match, ans is false.
+                if (j == typed.length() || typed.charAt(j) != c)
+                    return false;
             }
 
-            int counter=0;
-            while (j < t.length && counter<2 && c == t[j]) {
-                j++;
-                counter++;
-            }
-            i++;
+            j++;
         }
-        return result;
-
+        return true;
     }
 }

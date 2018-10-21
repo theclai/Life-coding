@@ -90,6 +90,5 @@ public class ThreeEqualParts_927 {
 
         if (x < z || y < z) return IMP;
         return new int[]{j1+z, j2+z+1};
-
     }
 }
