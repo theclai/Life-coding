@@ -20,21 +20,6 @@ public class SplitLinkedList {
      * It should return the head of second part of the list
      * */
     private static ListNode divideHalf(ListNode list) {
-        /*
-        ListNode slow = nodea;
-        ListNode fast = nodea;
-
-        while (fast!=null && fast.next!=null){
-            slow=slow.next;
-            System.out.println("Slow: "+ slow.c);
-            fast=fast.next.next;
-            System.out.println("Fast: "+ fast.c);
-        }
-        System.out.println(slow.c);
-        System.out.println(fast.c);
-        return false;
-        */
-        // Find the odd number of nodes
         if (list == null)
             return null;
         ListNode runner = list.next;
