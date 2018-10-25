@@ -1,7 +1,4 @@
 package tree;
-
-import java.util.Arrays;
-
 /**
  * 1. ST is a binary tree. In a tree data stored as
  * parent = i
