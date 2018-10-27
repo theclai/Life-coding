@@ -16,8 +16,6 @@ public class RangeSumQuery2D_304 {
         RangeSumQuery2D_304 rm = new RangeSumQuery2D_304(matrix);
         System.out.println(rm.sumRegion(2,1,4,3));
         System.out.println(rm.sumRegion(1,1,2,2));
-
-
     }
 
 
@@ -28,7 +26,6 @@ public class RangeSumQuery2D_304 {
                 System.out.println(matrix[i][j]);
                 sum+=matrix[i][j];
             }
-
         }
         return sum;
 
