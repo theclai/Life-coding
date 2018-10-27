@@ -1,7 +1,4 @@
 package leetcode;
-
-import java.util.Arrays;
-
 public class NumberOfIslands_200 {
     public static void main(String[] args) {
        int[][] input = new int[][]{
