@@ -40,9 +40,11 @@ public class AmazonTwo {
         {
             if(lot.get(row).get(col)==0)
                 return Integer.MAX_VALUE;
-            int top= findMin(row-1,col,lot,counter+1);
-            int left=findMin(row,col-1,lot,counter+1);
-            return Math.min(top,left);
+            else{
+                int top= findMin(row-1,col,lot,counter+1);
+                int left=findMin(row,col-1,lot,counter+1);
+                return Math.min(top,left);
+            }
         }else {
             return counter;
         }
