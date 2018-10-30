@@ -15,15 +15,18 @@ public class HuffmanEncoding {
 
     public void HuffmanEncodingBuilder(String data) {
         // create frequency counter
+        buildFrequencyCounter(data,map);
+        printFrequencyCounter(map);
+
+    }
+
+    private void buildFrequencyCounter(String data, HashMap<Character,Integer> map) {
         data.chars().forEach(c->{
             if(map.containsKey((char)c))
                 map.put((char)c,map.get((char)c)+1);
             else
                 map.put((char)c,1);
         });
-
-        printFrequencyCounter(map);
-
     }
 
     private void printFrequencyCounter(HashMap<Character, Integer> map) {
