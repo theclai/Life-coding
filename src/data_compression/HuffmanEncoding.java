@@ -23,7 +23,45 @@ public class HuffmanEncoding {
         for (Map.Entry e : map.entrySet()) {
             pq.add(new Node((Character) e.getKey(), (Integer) e.getValue()));
         }
-        printQueue(pq);
+        //printQueue(pq);
+
+        // This loops will take smallest two elements and create a new internal node
+        // keep doing it until it found the root
+        while (pq.size() != 1) {
+            Node left = pq.poll();
+            Node right = pq.poll();
+            System.out.println(left.ch);
+            System.out.println(right.ch);
+            int sum = left.frequency + right.frequency;
+            pq.add(new Node('\0', sum, left, right));
+        }
+
+        Node root = pq.peek();
+        System.out.println("Root: " + root.frequency);
+
+        // traverse the Huffman tree and store the Huffman codes in a map
+        Map<Character, String> huffmanCode = new HashMap<>();
+        encode(root, "", huffmanCode);
+
+        // print the Huffman codes
+        System.out.println("Huffman Codes are :\n");
+        for (Map.Entry<Character, String> entry : huffmanCode.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        }
+
+        System.out.println("\nOriginal string was :\n" + data);
+    }
+
+    private void encode(Node root, String str, Map<Character, String> huffmanCode) {
+        if (root == null)
+            return;
+
+        // found a leaf node
+        if (root.left == null && root.right == null) {
+            huffmanCode.put(root.ch, str);
+        }
+        encode(root.left, str + "0", huffmanCode);
+        encode(root.right, str + "1", huffmanCode);
     }
 
     private void printQueue(PriorityQueue<Node> pq) {
@@ -36,12 +74,10 @@ public class HuffmanEncoding {
 
     private void buildFrequencyCounter(String data, HashMap<Character, Integer> map) {
         data.chars().forEach(c -> {
-            if (c != ' ') {
-                if (map.containsKey((char) c))
-                    map.put((char) c, map.get((char) c) + 1);
-                else
-                    map.put((char) c, 1);
-            }
+            if (!map.containsKey((char) c))
+                map.put((char) c, 0);
+            map.put((char) c, map.get((char) c) + 1);
+
         });
     }
 
