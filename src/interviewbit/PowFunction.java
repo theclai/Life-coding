@@ -1,7 +1,5 @@
 package interviewbit;
 
-import java.math.BigInteger;
-
 public class PowFunction {
     public int power(int x, int n, int d) {
         int pow = 1;
