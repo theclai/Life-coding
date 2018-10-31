@@ -50,6 +50,22 @@ public class HuffmanEncoding {
         }
 
         System.out.println("\nOriginal string was :\n" + data);
+// print encoded string
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < data.length(); i++) {
+            sb.append(huffmanCode.get(data.charAt(i)));
+        }
+
+        System.out.println("\nEncoded string is :\n" + sb);
+
+        // traverse the Huffman Tree again and this time
+        // decode the encoded string
+        int index = -1;
+        System.out.println("\nDecoded string is: \n");
+        while (index < sb.length() - 2) {
+            index = decode(root, index, sb);
+        }
+
     }
 
     private void encode(Node root, String str, Map<Character, String> huffmanCode) {
@@ -62,6 +78,27 @@ public class HuffmanEncoding {
         }
         encode(root.left, str + "0", huffmanCode);
         encode(root.right, str + "1", huffmanCode);
+    }
+
+    // traverse the Huffman Tree and decode the encoded string
+    public static int decode(Node root, int index, StringBuilder sb) {
+        if (root == null)
+            return index;
+
+        // found a leaf node
+        if (root.left == null && root.right == null) {
+            System.out.print(root.ch);
+            return index;
+        }
+
+        index++;
+
+        if (sb.charAt(index) == '0')
+            index = decode(root.left, index, sb);
+        else
+            index = decode(root.right, index, sb);
+
+        return index;
     }
 
     private void printQueue(PriorityQueue<Node> pq) {
