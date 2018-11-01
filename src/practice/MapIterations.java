@@ -11,6 +11,13 @@ public class MapIterations {
         map.forEach((key,val)->{
             System.out.println("KEY: "+key+" VALUE: "+val);
         });
+
+        List<Integer> list=new ArrayList<Integer>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+        list.forEach(i->System.out.println(i));
     }
 
 }
