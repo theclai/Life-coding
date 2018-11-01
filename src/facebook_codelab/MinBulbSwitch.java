@@ -33,11 +33,7 @@ public class MinBulbSwitch {
 
     private static void changeState(int[] a,int pos) {
         for(int i=pos;i<a.length;i++){
-            if(a[i]==1){
-                a[i]=0;
-            }else{
-                a[i]=1;
-            }
+            a[i]=1-a[i];
         }
 
     }
