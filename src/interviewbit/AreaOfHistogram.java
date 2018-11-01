@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AreaOfHistogram {
-
+/*
         public int largestRectangleArea(ArrayList<Integer> A) {
             int width=1;
             if(A==null || A.size()==0)
@@ -22,7 +22,7 @@ public class AreaOfHistogram {
 
                 int area=val*width;
                 while(pos<i){
-                    int area=A.get(pos)*i-pos;
+                    //int area=A.get(pos)*i-pos;
                     pos++;
                 }
 
@@ -33,8 +33,8 @@ public class AreaOfHistogram {
         }
 
         public static int[] findMinBar(List<Integer> A, position){
-            return new int[]{position,height};
+            //return new int[]{position,height};
         }
 
-
+*/
 }
