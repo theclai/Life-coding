@@ -2,39 +2,47 @@ package interviewbit;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.*;
 
 public class AreaOfHistogram {
-/*
-        public int largestRectangleArea(ArrayList<Integer> A) {
-            int width=1;
-            if(A==null || A.size()==0)
-                return 0;
-            int curMax=0;
-            int max=0;
-            for(int i=0;i<A.size();i++){
-                if(i==0)
-                    curMax=A.get(i);
+    public static void main(String[] args) {
+        int[] heights = new int[]{2, 1, 5, 6, 2, 3};
+        System.out.println(getMaxRect(heights));
 
-                int[] minBarPositionAndHeight=findMinBar(A,i);
+    }
 
-                int pos=minBarPositionAndHeight[0];
-                int val=minBarPositionAndHeight[1];
+    public static int getMaxRect(int[] height) {
+        int max = -1;
+        int curMax = 0;
+        if (height == null || height.length == 0)
+            return 0;
 
-                int area=val*width;
-                while(pos<i){
-                    //int area=A.get(pos)*i-pos;
-                    pos++;
-                }
+        Stack<Integer> stack = new Stack<Integer>();
 
-                if(A.get(i)<area){
-                    A.add(i,area);
-                }
+        int i = 0;
+        while (i < height.length) {
+            // stack is empty or
+            // current height is greater or equal previous
+            // add to stack
+            if (stack.isEmpty() || height[i] >= height[stack.peek()]) {
+                stack.push(i);
+                i++;
+            } else {
+                // current hts is smaller than the previous
+                int p = stack.pop();
+                int h = height[p];
+                int w = stack.isEmpty() ? i : i - stack.peek() - 1;// get the width
+                max = Math.max(h * w, max);
             }
+
+        }
+        while (!stack.isEmpty()) {
+            int p = stack.pop();
+            int h = height[p];
+            int w = stack.isEmpty() ? i : i - stack.peek() - 1;
+            max = Math.max(h * w, max);
         }
 
-        public static int[] findMinBar(List<Integer> A, position){
-            //return new int[]{position,height};
-        }
-
-*/
+        return max;
+    }
 }
