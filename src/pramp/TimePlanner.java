@@ -63,6 +63,9 @@ public class TimePlanner {
                 i++;
             }else{
                 j++;
+
+
+
             }
 
         }
