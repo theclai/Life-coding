@@ -1,40 +1,17 @@
 package interviewbit;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class AreaOfHistogram {
-/*
-        public int largestRectangleArea(ArrayList<Integer> A) {
-            int width=1;
-            if(A==null || A.size()==0)
-                return 0;
-            int curMax=0;
-            int max=0;
-            for(int i=0;i<A.size();i++){
-                if(i==0)
-                    curMax=A.get(i);
 
-                int[] minBarPositionAndHeight=findMinBar(A,i);
+    public static int largestRectangleArea(int[] A) {
+        int max = 0;
 
-                int pos=minBarPositionAndHeight[0];
-                int val=minBarPositionAndHeight[1];
+        return max;
+    }
 
-                int area=val*width;
-                while(pos<i){
-                    //int area=A.get(pos)*i-pos;
-                    pos++;
-                }
+    public static void main(String[] args) {
+        //int[] input = new int[]{2, 1, 5, 1, 6, 3};
+        //int[] input = new int[]{6, 2, 5, 4, 5, 1,6};
+        int[] input = new int[]{1,2,3,4,5,3,3,2};
+        System.out.println(largestRectangleArea(input));
 
-                if(A.get(i)<area){
-                    A.add(i,area);
-                }
-            }
-        }
-
-        public static int[] findMinBar(List<Integer> A, position){
-            //return new int[]{position,height};
-        }
-
-*/
+    }
 }
