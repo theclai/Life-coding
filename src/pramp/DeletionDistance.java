@@ -29,7 +29,6 @@ package pramp;
  */
 public class DeletionDistance {
     static int deletionDistance(String str1, String str2) {
-        // your code goes here
         return helperDeletionDistance(str1, str2, 0, 0);
     }
 
@@ -57,10 +56,37 @@ public class DeletionDistance {
 
     }
 
+    static int dpBottomApproach(String str1, String str2) {
+        int row = str1.length();
+        int col = str2.length();
+        int[][] cache = new int[row][col];
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                char charA = str1.charAt(i);
+                char charB = str2.charAt(j);
+                if (i == 0 && j == 0) {
+                    cache[i][j] = charA != charB ? 2 : 0;
+                    System.out.println(cache[i][j]);
+                } else if (i == 0 & j != 0) {
+                    cache[i][j] = charA != charB ? cache[i][j - 1] + 1 : cache[i][j - 1];
+                } else if (i != 0 & j == 0) {
+                    cache[i][j] = charA != charB ? cache[i - 1][j] + 1 : cache[i - 1][j];
+                } else {
+                    cache[i][j] = charA != charB ? Math.min(cache[i - 1][j], cache[i][j - 1]) : cache[i - 1][j - 1];
+                }
+
+            }
+
+        }
+        return cache[row - 1][col - 1];
+    }
+
     public static void main(String[] args) {
-        String str1 = "dog";
-        String str2 = "frog";
+        String str1 = "frog";
+        String str2 = "dog";
 
         System.out.println(deletionDistance(str1, str2));
+        System.out.println(dpBottomApproach(str1, str2));
     }
 }
