@@ -13,10 +13,12 @@ public class KthSymbolInGrammer {
      * 01
      * o110
      * 01 10 10 01
+     *
+     * 0110 1001 0110 0110
      */
     public static void main(String[] args) {
-        int N = 4;
-        int K = 5;
+        int N = 30;
+        int K = 434991989;
         System.out.println(kthGrammar(N, K));
     }
 
@@ -37,10 +39,12 @@ public class KthSymbolInGrammer {
                         s.append('1');
                         s.append('0');
                     }
-
                 }
                 sb.setLength(0);
-                sb.append(s);
+                if(s.length()>=K)
+                    sb.append(s.substring(0,K));
+                else
+                    sb.append(s);
                 s.setLength(0);
             }
             count++;
