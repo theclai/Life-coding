@@ -52,14 +52,8 @@ public class TimePlanner {
 
         if(slotsA==null || slotsB==null||slotsA.length==0 || slotsB.length==0)
             return new int[]{};
-
-        Set<Integer> hashSet=new HashSet<>();
-
         List<int[]> list=new ArrayList<>();
-
         list.add(new int[]{1,2});
-        System.out.println(list.toArray());
-
         int i=0;
         int j=0;
         int start;
@@ -71,16 +65,11 @@ public class TimePlanner {
             if(start+dur<=end){
                 return new int[]{start,start+dur};
             }
-
             if(slotsA[i][1]<slotsB[j][1]){
                 i++;
             }else{
                 j++;
-
-
-
             }
-
         }
         return new int[]{};
     }
