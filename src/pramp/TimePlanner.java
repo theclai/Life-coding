@@ -1,5 +1,10 @@
 package pramp;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class TimePlanner {
 
     /**
@@ -20,6 +25,13 @@ public class TimePlanner {
     static int[] meetingPlanner(int[][] slotsA, int[][] slotsB, int dur) {
         if (slotsA == null || slotsB == null || slotsA.length == 0 || slotsB.length == 0)
             return new int[]{};
+
+        Set<Integer> hashSet=new HashSet<>();
+
+        List<int[]> list=new ArrayList<>();
+
+        list.add(new int[]{1,2});
+        System.out.println(list.toArray());
 
         int i = 0;
         int j = 0;
