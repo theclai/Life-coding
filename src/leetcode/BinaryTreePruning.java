@@ -39,9 +39,5 @@ public class BinaryTreePruning {
         if (!left) root.left = null;
         if (!right) root.right = null;
         return root.val == 1 || left || right;// any of the three statements is true will return true
-
-
     }
-
-
 }
