@@ -1,4 +1,5 @@
 package coderbyte;
+import java.util.Arrays;
 /**
  * For this problem, your goal is to sort an array of 0, 1 and 2's
  * but you must do this in place, in linear time and without any extra
@@ -8,7 +9,6 @@ package coderbyte;
  * algorithm should run in O(n) time.
  */
 
-import java.util.Arrays;
 
 /**
  * (1) Create a low pointer at the beginning of the array and a high pointer at the end of the array.
