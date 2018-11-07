@@ -21,8 +21,8 @@ package bybybyte;
 
 public class IntegerDifferenceInSingleBit {
     public static void main(String[] args) {
-        int a = 0;
-        int b = 1;
+        int a = 1;
+        int b = 2;
         IntegerDifferenceInSingleBit test = new IntegerDifferenceInSingleBit();
         System.out.println(test.isGray(a, b));
     }
@@ -30,8 +30,10 @@ public class IntegerDifferenceInSingleBit {
     private boolean isGray(int a, int b) {
         int result = a ^ b;
         while (result > 0) {
-            if (result % 2 == 1 && result >> 1 > 0) return false;
+            if (result % 2 == 1 && result >> 1 > 0) return false;//we
+            //shifting bit by bit to right, if there is only 1 after the first shift result should be zero, otherwise false
             result = result >> 1;
         }
+        return true;
     }
 }
