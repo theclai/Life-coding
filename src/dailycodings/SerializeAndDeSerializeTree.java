@@ -24,7 +24,6 @@ public class SerializeAndDeSerializeTree {
             sNode.remove(0);
             return null;
         }
-
         TreeNode root = new TreeNode(sNode.get(0));
         sNode.remove(0);
         root.left = deserialize(sNode);
