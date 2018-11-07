@@ -25,6 +25,7 @@ public class IntegerDifferenceInSingleBit {
         int b = 2;
         IntegerDifferenceInSingleBit test = new IntegerDifferenceInSingleBit();
         System.out.println(test.isGray(a, b));
+        System.out.println(test.isGrayOptimize(a,b));
     }
 
     private boolean isGray(int a, int b) {
@@ -35,5 +36,10 @@ public class IntegerDifferenceInSingleBit {
             result = result >> 1;
         }
         return true;
+    }
+
+    private boolean isGrayOptimize(int a, int b) {
+        int result = a ^ b;
+        return (result & result - 1) == 0;
     }
 }
