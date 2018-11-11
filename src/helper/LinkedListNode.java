@@ -1,10 +1,10 @@
 package helper;
 
 public class LinkedListNode {
-    int val;
-    LinkedListNode prev;
-    LinkedListNode next;
-    int both;
+    public int val;
+    public LinkedListNode prev;
+    public LinkedListNode next;
+    public int both;
 
     public LinkedListNode() {
     }
