@@ -59,7 +59,7 @@ public class Test {
         public Node findSmallestChild(Node parent, Node right) {
             if (right == null)
                 return parent;
-            else findSmallestChild(right, right.left);
+            else return findSmallestChild(right, right.left);
         }
 
 
@@ -73,6 +73,7 @@ public class Test {
             } else if (inputNode.right == null) {
                 return findParent(inputNode.parent, inputNode);
             }
+            return null;
 
         }
 
