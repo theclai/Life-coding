@@ -1,8 +1,7 @@
 package pramp;
 
 
-class KMessedArraySort {
-
+public class KMessedArraySort {
     static int[] sortKMessedArray(int[] arr, int k) {
         if (arr == null || arr.length == 0)
             return arr;
@@ -33,7 +32,5 @@ class KMessedArraySort {
         for (int i = 0; i < result.length; i++) {
             System.out.println(result[i]);
         }
-
     }
-
 }
