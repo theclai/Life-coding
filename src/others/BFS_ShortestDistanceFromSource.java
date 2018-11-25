@@ -16,6 +16,7 @@ public class BFS_ShortestDistanceFromSource {
 
     public static int[] bfs() {
         int NUMBER_OF_NODES = 10;
+        int EDGES_DISTANCE = 6;
         int[] distances = new int[NUMBER_OF_NODES];
         Arrays.fill(distances, 10);
         Node[] nodes = null;
@@ -28,7 +29,7 @@ public class BFS_ShortestDistanceFromSource {
             int node = queue.poll();
             for (int neighbour : nodes[node].neighhours) {
                 if (distances[neighbour] == -1) {
-                    distances[neighbour] = distances[node] + 1;
+                    distances[neighbour] = distances[node] + EDGES_DISTANCE;
                     queue.add(neighbour);
                 }
             }
