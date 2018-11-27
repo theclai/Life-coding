@@ -1,9 +1,6 @@
 package leetcode;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
+import java.util.*;
 
 /**
  * To some string S, we will perform some replacement operations that replace groups of letters with new ones (not necessarily the same size).
@@ -37,43 +34,72 @@ import java.util.LinkedHashSet;
 public class FindReplaceString {
     public static void main(String[] args) {
         String S = "abcd";
-        int[] indexes = new int[]{0,2};
-        String[] sources = new String[]{"a","cd"};
-        String[] targets = new String[]{"eee","ffff"};
-        System.out.println(findReplaceString(S,indexes,sources,targets));
+        int[] indexes = new int[]{0, 2};
+        String[] sources = new String[]{"a", "cd"};
+        String[] targets = new String[]{"eee", "ffff"};
+        System.out.println(findReplaceString(S, indexes, sources, targets));
 
-        int[] indexes1 = new int[]{0,2};
-        String[] sources1 = new String[]{"ab","ec"};
-        String[] targets1 = new String[]{"eee","ffff"};
-        System.out.println(findReplaceString(S,indexes1,sources1,targets1));
+        int[] indexes1 = new int[]{0, 2};
+        String[] sources1 = new String[]{"ab", "ec"};
+        String[] targets1 = new String[]{"eee", "ffff"};
+        System.out.println(findReplaceString(S, indexes1, sources1, targets1));
 
-        String S2="vmokgggqzp";
-        int[] indexes2 = new int[]{3,5,1};
-        String[] sources2 = new String[]{"kg","ggq","mo"};
-        String[] targets2 = new String[]{"s","so","bfr"};
-        System.out.println(findReplaceString(S2,indexes2,sources2,targets2));
+        String S2 = "vmokgggqzp";
+        int[] indexes2 = new int[]{3, 5, 1};
+        String[] sources2 = new String[]{"kg", "ggq", "mo"};
+        String[] targets2 = new String[]{"s", "so", "bfr"};
+        System.out.println(findReplaceStringAdvance(S2, indexes2, sources2, targets2));
 
     }
 
-    public static String findReplaceString(String S,
-                                    int[] indexes,
-                                    String[] sources,
-                                    String[] targets) {
+    public static String findReplaceStringAdvance(String S,
+                                                  int[] indexes,
+                                                  String[] sources,
+                                                  String[] targets) {
         StringBuilder sb = new StringBuilder();
-        LinkedHashSet<Integer> inSet=new LinkedHashSet<>();
-        Arrays.stream(indexes).forEach(i->inSet.add(i));
+        int N = S.length();
+        int[] match = new int[N];
+        Arrays.fill(match, -1);
+        // find all the match position
+        for (int i = 0; i < indexes.length; i++) {
+            int idx = indexes[i];
+            if (S.substring(idx, idx + sources[i].length()).equals(sources[i]))
+                match[idx] = i;
+        }
+
+        int ix = 0;
+        while (ix < N) {
+            if (match[ix] >= 0) {
+                sb.append(targets[match[ix]]);
+                ix++;
+
+            } else {
+                sb.append(S.charAt(ix++));
+            }
+        }
+
+        return sb.toString();
+    }
+
+    public static String findReplaceString(String S,
+                                           int[] indexes,
+                                           String[] sources,
+                                           String[] targets) {
+        StringBuilder sb = new StringBuilder();
+        LinkedHashSet<Integer> inSet = new LinkedHashSet<>();
+        Arrays.stream(indexes).forEach(i -> inSet.add(i));
 
         if (isValid(indexes, sources, targets)) {
             int i = 0;
             int j = 0;
             while (i < S.length()) {
                 if (inSet.contains(Integer.valueOf(i))) {
-                    Iterator it=inSet.iterator();
-                    int pos=0;
-                    while(it.hasNext()){
-                        int res= (int) it.next();
-                        if(i==res){
-                            j=pos;
+                    Iterator it = inSet.iterator();
+                    int pos = 0;
+                    while (it.hasNext()) {
+                        int res = (int) it.next();
+                        if (i == res) {
+                            j = pos;
                             break;
                         }
                         pos++;
@@ -82,14 +108,16 @@ public class FindReplaceString {
 
                     if (S.substring(i, i + str.length()).contains(str)) {
                         sb.append(targets[j]);
-                        i+=str.length();
+                        i += str.length();
                         j++;
-                    }{
-                        if(i<S.length()){
-                            sb.append(S.charAt(i));
-                            i++;}
                     }
-                }else{
+                    {
+                        if (i < S.length()) {
+                            sb.append(S.charAt(i));
+                            i++;
+                        }
+                    }
+                } else {
                     sb.append(S.charAt(i));
                     i++;
                 }
