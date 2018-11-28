@@ -1,6 +1,7 @@
 package hackerrank;
 
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class FormingMagicSquare {
     public static void main(String[] args) {
@@ -10,7 +11,8 @@ public class FormingMagicSquare {
                 {6, 4, 2}
         };
 
-        System.out.println(formingMagicSquare(in));
+        //System.out.println(formingMagicSquare(in));
+        System.out.println(ThreadLocalRandom.current().nextInt(0,10));
 
     }
 
@@ -22,7 +24,7 @@ public class FormingMagicSquare {
                 uniqueNumbers.add(s[i][j]);
             }
         }
-
+        ThreadLocalRandom.current().nextInt(0,10);
 
         return 0;
     }
