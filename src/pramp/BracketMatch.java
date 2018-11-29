@@ -14,7 +14,6 @@ public class BracketMatch {
                 diffCounter++;
                 ans++;
             }
-
         }
         return diffCounter + ans;
 
