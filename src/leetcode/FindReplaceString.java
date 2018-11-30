@@ -56,29 +56,27 @@ public class FindReplaceString {
                                                   int[] indexes,
                                                   String[] sources,
                                                   String[] targets) {
-        StringBuilder sb = new StringBuilder();
         int N = S.length();
         int[] match = new int[N];
         Arrays.fill(match, -1);
-        // find all the match position
-        for (int i = 0; i < indexes.length; i++) {
-            int idx = indexes[i];
-            if (S.substring(idx, idx + sources[i].length()).equals(sources[i]))
-                match[idx] = i;
+
+        for (int i = 0; i < indexes.length; ++i) {
+            int ix = indexes[i];
+            if (S.substring(ix, ix + sources[i].length()).equals(sources[i]))
+                match[ix] = i;
         }
 
+        StringBuilder ans = new StringBuilder();
         int ix = 0;
         while (ix < N) {
             if (match[ix] >= 0) {
-                sb.append(targets[match[ix]]);
-                ix++;
-
+                ans.append(targets[match[ix]]);
+                ix += sources[match[ix]].length();
             } else {
-                sb.append(S.charAt(ix++));
+                ans.append(S.charAt(ix++));
             }
         }
-
-        return sb.toString();
+        return ans.toString();
     }
 
     public static String findReplaceString(String S,
