@@ -32,12 +32,12 @@ import java.util.List;
  * a. An integer containing value 789.
  */
 
-public interface NestedInteger {
+interface NestedInteger {
 
-    public NestedInteger();
+    //public NestedInteger();
 
     // Constructor initializes a single integer.
-    public NestedInteger(int value);
+    //public NestedInteger(int value);
 
     // @return true if this NestedInteger holds a single integer, rather than a nested list.
     public boolean isInteger();
@@ -65,7 +65,7 @@ public class MiniParser_385 {
     }
 
     public NestedInteger deserialize(String s) {
-
+/*
         char[] arr = s.toCharArray();
         if (arr[0] != '[') return new NestedInteger(Integer.parseInt(s));
         String temp = "";
@@ -105,7 +105,7 @@ public class MiniParser_385 {
         if (!temp.equals("")) {
             return new NestedInteger(Integer.parseInt(temp));
         }
-
+*/
         return null;
     }
 
