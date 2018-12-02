@@ -9,10 +9,12 @@ public class LargestTime_949 {
     public static void main(String[] args) {
         int[] in1=new int[]{1,2,3,4};
         int[] in2=new int[]{5,5,5,5};
+        int[] in3=new int[]{0,4,0,0};
 
         LargestTime_949 lt=new LargestTime_949();
         System.out.println(lt.largestTimeFromDigits(in1));
         System.out.println(lt.largestTimeFromDigits(in2));
+        System.out.println(lt.largestTimeFromDigits(in3));
 
     }
     public String largestTimeFromDigits(int[] A) {
@@ -23,18 +25,18 @@ public class LargestTime_949 {
 
         set=new HashSet<>();
         Arrays.sort(A);
-        return getMaxHour(A);
 
-    }
-
-    private String getMaxHour(int[] input) {
         StringBuilder sb=new StringBuilder();
 
-        sb= helper(sb,input,set,3);
-        sb=helper(sb,input,set,4);
+        sb= helper(sb,A,set,3);
+        if(Integer.parseInt(String.valueOf(sb.toString().charAt(0)))<2)
+            sb=helper(sb,A,set,10);
+        else
+            sb=helper(sb,A,set,4);
+
         sb.append(":");
-        sb=helper(sb,input,set,5);
-        sb=helper(sb,input,set,10);
+        sb=helper(sb,A,set,5);
+        sb=helper(sb,A,set,10);
         if(sb.length()==5)
             return sb.toString();
         else return "";
