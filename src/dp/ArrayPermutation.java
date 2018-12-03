@@ -40,6 +40,4 @@ public class ArrayPermutation {
         input[j] = input[i];
         input[i] = temp;
     }
-
-
 }
