@@ -4,6 +4,7 @@ public class MinEditDistance {
     public static void main(String[] args) {
         MinEditDistance med = new MinEditDistance();
         System.out.println(med.minDistance("god","dog"));
+        System.out.println(med.minDistance("kitten","sitting"));
     }
 
     public int minDistance(String a, String b) {
