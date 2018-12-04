@@ -11,7 +11,7 @@ public class Main {
 
         Deque a=new ArrayDeque();
 
-        PriorityQueue<Integer> pq=new PriorityQueue<>();
+        PriorityQueue<Integer> pq=new PriorityQueue<>(5,Collections.reverseOrder());
         pq.add(5);
         pq.add(3);
         pq.add(4);
