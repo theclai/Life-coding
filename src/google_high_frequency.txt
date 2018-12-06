@@ -6,11 +6,11 @@ ppp	62	62. Unique Paths	medium		Google
 *?	134	134. Gas Station	medium		Google
 ppp	162	162. Find Peak Element	medium		Google
 ?p	173	173. Binary Search Tree Iterator	medium		Google
-ppp	208	208. Implement Trie (Prefix Tree)	medium		Google
-?*	239	239. Sliding Window Maximum	hard		Google
+ppp	   D     208	208. Implement Trie (Prefix Tree)	medium		Google
+?*	   D     239	239. Sliding Window Maximum	hard		Google
 ?	248	248. Strobogrammatic Number III	hard		Google
 *	249	249. Group Shifted Strings	medium		Google
-?*	271	271. Encode and Decode Strings	medium		Google
+?*	   D     271	271. Encode and Decode Strings	medium		Google
 **	277	277. Find the Celebrity	medium		Google
 *	288	288. Unique Word Abbreviation	medium		Google
 ?*	308	308. Range Sum Query 2D - Mutable	hard		Google
@@ -23,7 +23,7 @@ ppp	208	208. Implement Trie (Prefix Tree)	medium		Google
 **	394	394. Decode String	medium		Google
 ?*	399	399. Evaluate Division	medium		Google
 ?	418	418. Sentence Screen Fitting	medium		Google
-p	445	445. Add Two Numbers II	medium		Google
+p	   D     445	445. Add Two Numbers II	medium		Google
 ?	478	478. Generate Random Point in a Circle	medium		Google
 *	490	490. The Maze	medium		Google
 ?	505	505. The Maze II	medium		Google
