@@ -25,3 +25,4 @@ Helper materials:
 Tree:
     
    1. Segment Tree: https://www.youtube.com/watch?v=Oq2E2yGadnU
+   2. AVL Tree: https://www.youtube.com/watch?v=-9sHvAnLN_w
