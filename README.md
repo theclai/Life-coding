@@ -19,3 +19,9 @@ with test cases.
 11. https://www.dailycodingproblem.com/
 12. https://coderbyte.com/
 13. https://www.interviewcake.com
+
+Helper materials: 
+
+Tree:
+    
+   1. Segment Tree: https://www.youtube.com/watch?v=Oq2E2yGadnU
