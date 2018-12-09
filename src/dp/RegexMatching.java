@@ -3,7 +3,7 @@ package dp;
 public class RegexMatching {
     public static void main(String[] args) {
         RegexMatching rm = new RegexMatching();
-        boolean isMatch = rm.isMatch();
+        boolean isMatch = rm.isMatch("aab", "c*a*b");
         System.out.println(isMatch);
     }
 
