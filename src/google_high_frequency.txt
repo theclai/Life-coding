@@ -25,7 +25,7 @@ ppp	   D     208	208. Implement Trie (Prefix Tree)	medium		Google
 ?	418	418. Sentence Screen Fitting	medium		Google
 p	   D     445	445. Add Two Numbers II	medium		Google
 ?	478	478. Generate Random Point in a Circle	medium		Google
-*	490	490. The Maze	medium		Google
+*	   D     490	490. The Maze	medium		Google
 ?	505	505. The Maze II	medium		Google
 *	544	544. Output Contest Matches	medium		Google
 **	562	562. Longest Line of Consecutive One in Matrix	medium		Google
