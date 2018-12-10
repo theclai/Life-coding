@@ -1,11 +1,11 @@
  p	22	22. Generate Parentheses	medium		Google
-ppp	   D    62	62. Unique Paths	medium		Google
-*pp	   D    63	63. Unique Paths II	medium		Google
-*	   D    91	91. Decode Ways	    medium		Google
-?	   D    97	97. Interleaving String	hard		Google
-*?	   D    134	134. Gas Station	medium		Google
-ppp	   D    162	162. Find Peak Element	medium		Google
-?p	173	173. Binary Search Tree Iterator	medium		Google
+ppp	   D     62	62. Unique Paths	medium		Google
+*pp	   D     63	63. Unique Paths II	medium		Google
+*	   D     91	91. Decode Ways	    medium		Google
+?	   D     97	97. Interleaving String	hard		Google
+*?	   D     134	134. Gas Station	medium		Google
+ppp	   D     162	162. Find Peak Element	medium		Google
+?p	   D     173	173. Binary Search Tree Iterator	medium		Google
 ppp	   D     208	208. Implement Trie (Prefix Tree)	medium		Google
 ?*	   D     239	239. Sliding Window Maximum	hard		Google
 ?	248	248. Strobogrammatic Number III	hard		Google
