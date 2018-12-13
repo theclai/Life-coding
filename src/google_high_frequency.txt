@@ -36,7 +36,7 @@ pp	684	684. Redundant Connection	medium		Google
 ?	723	723. Candy Crush	medium		Google
 *p	739	739. Daily Temperatures	medium		Google
 ?	774	774. Minimize Max Distance to Gas Station	hard		Google
-*	815	815. Bus Routes	hard	BFS	Google
+*	   D     815	815. Bus Routes	hard	BFS	Google
 *	833	833. Find And Replace in String	medium		Google
 ??*	843	843. Guess the Word	hard		Google
 ?**	844	844. Backspace String Compare	easy		Google
