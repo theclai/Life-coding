@@ -19,7 +19,7 @@ ppp	   D     208	208. Implement Trie (Prefix Tree)	medium		Google
 ?	375	375. Guess Number Higher or Lower II	medium		Google
 ?pp	380	380. Insert Delete GetRandom O(1)	medium		Google
 *	381	381. Insert Delete GetRandom O(1) - Duplicates allowed	hard		Google
-*	392	392. Is Subsequence	medium	followup	Google
+*	   D     392	392. Is Subsequence	medium	followup	Google
 **	394	394. Decode String	medium		Google
 ?*	399	399. Evaluate Division	medium		Google
 ?	418	418. Sentence Screen Fitting	medium		Google
