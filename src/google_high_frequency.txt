@@ -14,7 +14,7 @@ ppp	   D     208	208. Implement Trie (Prefix Tree)	medium		Google
 **	277	277. Find the Celebrity	medium		Google
 *	288	288. Unique Word Abbreviation	medium		Google
 ?*	308	308. Range Sum Query 2D - Mutable	hard		Google
-***	329	329. Longest Increasing Path in a Matrix	hard		Google
+***	   D     329	329. Longest Increasing Path in a Matrix	hard		Google
 *p	359	359. Logger Rate Limiter	easy		Google
 ?	375	375. Guess Number Higher or Lower II	medium		Google
 ?pp	380	380. Insert Delete GetRandom O(1)	medium		Google
