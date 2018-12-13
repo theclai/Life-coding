@@ -15,7 +15,8 @@ public class BusRoutes_815 {
     }
 
     public int numBusesToDestination(int[][] routes, int S, int T) {
-        if (routes == null || routes.length == 0 || S == T) return -1;
+        if(routes == null || routes.length == 0 || routes[0].length == 0) return -1;
+        if(S == T) return 0;
 
         // Stop and buses relation
         HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
@@ -25,7 +26,7 @@ public class BusRoutes_815 {
             }
         }
 
-        System.out.println(map);
+        //System.out.println(map);
 
         Queue<Integer> queue = new LinkedList<>();
         Set<Integer> visitedBuses = new HashSet<>();
@@ -54,7 +55,7 @@ public class BusRoutes_815 {
             }
             count++;
         }
-        return count;
+        return -1;
 
     }
 }
