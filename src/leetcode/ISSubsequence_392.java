@@ -26,18 +26,15 @@ public class ISSubsequence_392 {
     }
     @Test
     public void testFirst(){
-       // Assertions.assertEquals(true,is.isSubsequence("abc","abcde"));
-
+        Assertions.assertEquals(true,is.isSubsequence("abc","abcde"));
     }
     @Test
     public void testSecond(){
-       // Assertions.assertEquals(false,is.isSubsequence("axc","ahbgdc"));
-
+       Assertions.assertEquals(false,is.isSubsequence("axc","ahbgdc"));
     }
 
     @Test
     public void testThird(){
         Assertions.assertEquals(true,is.isSubsequence("abc","ahbgdc"));
-
     }
 }
