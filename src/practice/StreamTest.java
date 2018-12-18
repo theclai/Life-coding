@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class StreamTest {
     public int[] input;
@@ -37,6 +38,17 @@ public class StreamTest {
     public void toArrayTest(){
         Integer[] res=list.stream().toArray(Integer[]::new);
         Arrays.stream(res).forEach(op->System.out.println(op));
+    }
+
+    @Test
+    public void charArrayTest(){
+        String in="Bangladesh";
+        char[] list=in.toCharArray();
+        in.chars().forEach(i->{
+            System.out.println((char) i);
+        });
+
+
     }
 
 
