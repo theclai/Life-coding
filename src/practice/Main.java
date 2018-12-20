@@ -19,5 +19,13 @@ public class Main {
 
         System.out.println(pq.poll());
         System.out.println(pq.poll());
+
+
+        Map<String,String> map=new HashMap<>();
+        map.computeIfAbsent("Omar",data->"Faroque");
+
+        for(Map.Entry<String,String> entry:map.entrySet()){
+            System.out.println(entry.getValue());
+        }
     }
 }
