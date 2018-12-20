@@ -8,7 +8,6 @@ public class Main {
         System.out.println("Hello world");
 
         Stack s=new Stack();
-
         Deque a=new ArrayDeque();
 
         PriorityQueue<Integer> pq=new PriorityQueue<>(5,Collections.reverseOrder());
@@ -19,7 +18,6 @@ public class Main {
 
         System.out.println(pq.poll());
         System.out.println(pq.poll());
-
 
         Map<String,String> map=new HashMap<>();
         map.computeIfAbsent("Omar",data->"Faroque");
