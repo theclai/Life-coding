@@ -12,6 +12,8 @@ public class LongestPalindromicSubstring {
     public String find(String in) {
         char[] chars = in.toCharArray();
         int len = chars.length;
+        if(len==0)
+            return "";
         int maxLength = 0;
         int maxPosition = 0;
         int[][] cache = new int[chars.length][chars.length];
@@ -23,13 +25,16 @@ public class LongestPalindromicSubstring {
                         cache[i][j] = cache[i - 1][j - 1] + 1;
                     else
                         cache[i][j] = 1;
+
                     if (cache[i][j] > maxLength) {
                         maxLength = cache[i][j];
                         maxPosition=i;
                     }
                 } else {
-                    if (i > 0 && j > 0)
+                    if (j==0)
                         cache[i][j] = cache[i - 1][j];
+                    else if(i==0)
+                        cache[i][j] = cache[i][j-1];
                     else
                         cache[i][j] = 0;
                 }
@@ -46,9 +51,17 @@ public class LongestPalindromicSubstring {
     public void init() {
         lps = new LongestPalindromicSubstring();
     }
-
     @Test
     public void firstTest() {
         Assertions.assertEquals("anana", lps.find("bananas"));
+    }
+    @Test
+    public void secondTest() {
+        Assertions.assertEquals("", lps.find(""));
+    }
+
+    @Test
+    public void thirdTest() {
+        Assertions.assertEquals("a", lps.find("abcda"));
     }
 }
