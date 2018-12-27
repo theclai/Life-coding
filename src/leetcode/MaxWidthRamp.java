@@ -19,7 +19,6 @@ public class MaxWidthRamp {
         int ans = 0;
         int m = N;
         for (int i : B) {
-            System.out.println(i);
             ans = Math.max(ans, i - m);
             m = Math.min(m, i);
         }
