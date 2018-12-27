@@ -1,3 +1,4 @@
 status leetcodeNumber   text
 F  ------ 301 ----------- Remove Invalid Parentheses
 PP ------ 10  ----------- Regular Expression Matching
+PP ------ 38  ----------- Look and Say/Count and Say
