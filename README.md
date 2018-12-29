@@ -20,9 +20,13 @@ with test cases.
 12. https://coderbyte.com/
 13. https://www.interviewcake.com
 
-Helper materials: 
+## Helper materials: 
 
 Tree:
     
    1. Segment Tree: https://www.youtube.com/watch?v=Oq2E2yGadnU
    2. AVL Tree: https://www.youtube.com/watch?v=-9sHvAnLN_w
+   
+## Java Code Beauty: 
+
+Composition Function: http://www.deadcoderising.com/2015-09-07-java-8-functional-composition-using-compose-and-andthen/   
