@@ -29,4 +29,16 @@ Tree:
    
 ## Java Code Beauty: 
 
-Composition Function: http://www.deadcoderising.com/2015-09-07-java-8-functional-composition-using-compose-and-andthen/   
+Composition Function: http://www.deadcoderising.com/2015-09-07-java-8-functional-composition-using-compose-and-andthen/
+
+### Quick Notes   
+1. Counting character frequency in a string. 
+```
+ String s="HelloWorld";
+ Map<Character, Long> map = t.chars() //converting int stream
+                   .mapToObj(c -> (char) c)//int stream to character stream
+                   .collect(Collectors.groupingBy(Function.identity(),// collect by group
+                           Collectors.counting()));
+           System.out.println(map);
+           
+           
