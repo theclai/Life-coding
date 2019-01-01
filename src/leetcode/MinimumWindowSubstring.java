@@ -12,7 +12,7 @@ public class MinimumWindowSubstring {
         System.out.println(minWindow(s, t));
     }
 
-    public static String minWindow(String S, String T) {
+    private static String minWindow(String S, String T) {
         Map<Character, Long> dict = T.chars()
                 .mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(Function.identity(),
@@ -25,6 +25,7 @@ public class MinimumWindowSubstring {
         int end = 0;
         int min = Integer.MAX_VALUE;
         String minWindow = "";
+
         while (end < S.length()) {
             char c = S.charAt(end);
             if (dict.containsKey(c)) {
