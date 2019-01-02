@@ -46,7 +46,8 @@ Composition Function: http://www.deadcoderising.com/2015-09-07-java-8-functional
       
   2.Best way to find mid point. 
  ``` 
- M=start+(end-start)/2;
+ M=start+(end-start)/2;//overflow error free
+ 
 
 ```    
      
