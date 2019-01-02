@@ -18,5 +18,10 @@ public class ImportantFunction {
 
         List<Integer> o= map.values().stream().filter(k-> k>=2).collect(Collectors.toList());
         System.out.println(o.size());
+
+        // iterate over map
+        map.entrySet().stream().forEach(entry->{
+            System.out.println("Key: "+entry.getKey()+"value: "+entry.getValue());
+        });
     }
 }

@@ -32,7 +32,7 @@ Tree:
 Composition Function: http://www.deadcoderising.com/2015-09-07-java-8-functional-composition-using-compose-and-andthen/
 
 ### Quick Notes   
-1. Counting character frequency in a string. 
+#### Counting character frequency in a string. 
 
  ```
  String s="HelloWorld";
@@ -44,11 +44,17 @@ Composition Function: http://www.deadcoderising.com/2015-09-07-java-8-functional
   ```
  
       
-  2.Best way to find mid point. 
+#### Best way to find mid point. 
  ``` 
  M=start+(end-start)/2;//overflow error free
- 
 
-```    
-     
+```
+  
+#### Iterating over map 
+  ```
+ map.entrySet().stream().forEach(entry->{
+            System.out.println("Key: "+entry.getKey()+"value: "+entry.getValue());
+        });
+```
+         
            
