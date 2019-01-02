@@ -3,8 +3,6 @@ package dailycodings;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 public class FindingElementInRotatedAndSortedArray {
     FindingElementInRotatedAndSortedArray findingElementInRotatedAndSortedArray;
 
@@ -16,12 +14,12 @@ public class FindingElementInRotatedAndSortedArray {
     @Test
     public void test() {
         int[] in = new int[]{5, 6, 7, 8, 9, 10, 1, 2, 3};
-        int m = findingElementInRotatedAndSortedArray.binarySearch(in,2);
+        int m = findingElementInRotatedAndSortedArray.binarySearch(in, 2);
         System.out.println(m);
     }
 
-    private int binarySearch(int[] arr,int key){
-        int pivot=findPivot(arr,0,arr.length);
+    private int binarySearch(int[] arr, int key) {
+        int pivot = findPivot(arr, 0, arr.length);
         if (pivot == -1)
             return search(arr, 0, arr.length, key);
 
@@ -31,19 +29,18 @@ public class FindingElementInRotatedAndSortedArray {
             return pivot;
 
         if (arr[0] <= key)
-            return search(arr, 0, pivot-1, key);
-
-        return search(arr, pivot+1, arr.length, key);
+            return search(arr, 0, pivot - 1, key);
+        return search(arr, pivot + 1, arr.length, key);
     }
 
-    private int search(int[] in, int start, int end,int target) {
-        while (start<end){
-            int mid=(end-start)/2+start;
-            if(in[mid]==target)return mid;
-            if(in[mid]>target)
-                end=mid;
-            if(in[mid]<target)
-                start=mid;
+    private int search(int[] in, int start, int end, int target) {
+        while (start < end) {
+            int mid = (end - start) / 2 + start;
+            if (in[mid] == target) return mid;
+            if (in[mid] > target)
+                end = mid;
+            if (in[mid] < target)
+                start = mid;
         }
         return -1;
     }
