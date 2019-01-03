@@ -1,4 +1,4 @@
-package geeksforgeeks.interview_questions;
+package geeksforgeeks.interview_questions.strings;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
