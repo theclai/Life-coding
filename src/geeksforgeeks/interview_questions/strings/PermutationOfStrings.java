@@ -1,4 +1,4 @@
-package geeksforgeeks.interview_questions;
+package geeksforgeeks.interview_questions.strings;
 public class PermutationOfStrings {
     public static void main(String[] args) {
         String str = "ABC";
