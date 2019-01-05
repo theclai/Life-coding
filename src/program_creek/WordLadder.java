@@ -22,28 +22,38 @@ public class WordLadder {
     }
 
     public static int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        // check edge case
         if (wordList == null || !wordList.contains(endWord)) {
             return 0;
         }
-        Deque<String> deque = new ArrayDeque();
-        deque.addLast(beginWord);
-        int len = 0;
+
+        // build queue, visited set
+        Queue<String> queue = new LinkedList<>();
+        queue.offer(beginWord);
         Set<String> words = new HashSet<>(wordList);
-        while (!deque.isEmpty()) {
-            len++;
-            String word = deque.removeFirst();
-            if (endWord.equals(word))
-                return len;
-            List<String> candidates = getCandidates(words, word);
-            for (String candidate : candidates) {
-                if (candidate.equals(endWord)) return len;
-                deque.addLast(candidate);
+
+        // process one level of queue each time, count
+        int count = 1;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            count++;
+            for (int i = 0; i < size; i++) {
+                String word = queue.poll();
+                List<String> candidates = transform(words, word);
+                for (String candidate: candidates) {
+                    if (endWord.equals(candidate)) {
+                        return count;
+                    }
+                    queue.offer(candidate);
+                }
             }
-        }
+        }// END WHILE
+
         return 0;
     }
 
-    private static List<String> getCandidates(Set<String> words, String word) {
+    // switch each char with 26 lowercase letters, and return candidates
+    private static List<String> transform(Set<String> words, String word) {
         List<String> candidates = new ArrayList<>();
         StringBuffer sb = new StringBuffer(word);
         for (int i = 0; i < sb.length(); i++) {
