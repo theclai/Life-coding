@@ -4,22 +4,23 @@ import java.util.Arrays;
 
 public class CoinChange {
     public static void main(String[] args) {
-        int[] coins=new int[]{1,2,5};
-        int n=11;
+        int[] coins=new int[]{2};
+        int n=3;
         System.out.println(findCoins(coins,n));
     }
 
-    private static int findCoins(int[] coins, int n) {
-        int[] cache= new int[n+1];
-        Arrays.fill(cache,Integer.MAX_VALUE);
-        for (int i = 1; i <=n; i++) {
-            for (int j = 0; j <coins.length ; j++) {
-                int coin=coins[j];
-                if(coin==i) cache[i]=1;
-                if(coin<i)
-                    cache[i]=Math.min(cache[i],cache[i-coin]+1);
+    private static int findCoins(int[] coins, int amount) {
+        int max = amount + 1;
+        int[] dp = new int[amount + 1];
+        Arrays.fill(dp, max);
+        dp[0] = 0;
+        for (int i = 1; i <= amount; i++) {
+            for (int j = 0; j < coins.length; j++) {
+                if (coins[j] <= i) {
+                    dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
+                }
             }
         }
-        return cache[n];
+        return dp[amount] > amount ? -1 : dp[amount];
     }
 }
