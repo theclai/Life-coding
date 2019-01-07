@@ -10,13 +10,15 @@ public class LIS {
     }
 
     private static int lis(int[] arr, int n) {
+        if(n==0) return  0;
+        if(n==1) return 1;
         int[] lis=new int[n];
         Arrays.fill(lis,1);
-        int max=Integer.MIN_VALUE;
+        int max=1;
 
         for (int i = 1; i <n ; i++) {
             for (int j = i-1; j >=0 ; j--) {
-                if(arr[j]<=arr[i]){
+                if(arr[j]<arr[i]){
                     lis[i]=Math.max(lis[j]+1,lis[i]);
                     max=Math.max(max,lis[i]);
                 }
