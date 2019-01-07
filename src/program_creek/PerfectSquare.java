@@ -4,10 +4,9 @@ import java.util.Arrays;
 
 public class PerfectSquare {
     public static void main(String[] args) {
-        System.out.println(perfSquare(12));
-
+        System.out.println(perfectSquare(12));
     }
-    public static int perfSquare(int n){
+    public static int perfectSquare(int n){
         int[] cache=new int[n+1];
         Arrays.fill(cache,Integer.MAX_VALUE);
         int max=(int)Math.sqrt(n);
