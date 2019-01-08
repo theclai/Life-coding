@@ -9,7 +9,7 @@ public class LengthOfLongestSubstring {
         }
         int result = 0;
         int k = 0;
-        HashSet<Character> set = new HashSet<Character>();
+        HashSet<Character> set = new HashSet<>();
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (!set.contains(c)) {
