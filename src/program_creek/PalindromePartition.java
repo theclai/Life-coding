@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PalindromePartition {
+    public static void main(String[] args) {
+        PalindromePartition pp=new PalindromePartition();
+        pp.partition("aab");
+    }
     public List<List<String>> partition(String s) {
         List<List<String>> result = new ArrayList<>();
         if (s == null || s.length() == 0) return result;
@@ -40,7 +44,6 @@ public class PalindromePartition {
             if (str.charAt(left) != str.charAt(right)) {
                 return false;
             }
-
             left++;
             right--;
         }
