@@ -21,6 +21,7 @@ public class LIS {
                 if(arr[j]<arr[i]){
                     lis[i]=Math.max(lis[j]+1,lis[i]);
                     max=Math.max(max,lis[i]);
+                    break;
                 }
             }
         }
