@@ -15,48 +15,54 @@ import java.util.*;
  */
 public class RemoveInvalidParenthesis {
     public static void main(String[] args) {
-        RemoveInvalidParenthesis rip=new RemoveInvalidParenthesis();
+        RemoveInvalidParenthesis rip = new RemoveInvalidParenthesis();
         ArrayList<String> res;
         res = (ArrayList<String>) rip.removeInvalidParentheses("()())()");
         res.forEach(System.out::println);
     }
+
     public List<String> removeInvalidParentheses(String s) {
+        List<String> res = new ArrayList<>();
+
+        // sanity check
+        if (s == null) return res;
+
         Set<String> visited = new HashSet<>();
-        List<String> result=new ArrayList<>();
-        Deque<String> queue = new ArrayDeque<>();
+        Queue<String> queue = new LinkedList<>();
+
+        // initialize
         queue.add(s);
         visited.add(s);
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            //result = new HashSet<>();
-            for (int i = 0; i < size; i++) {
-                String cur = queue.poll();
-                if (isValid(cur)) {
-                    result.add(cur);
-                    continue;
-                }
-                queue.addAll(getAdj(cur, visited));
-            }
-            if (result.isEmpty())
-                return new ArrayList<>();
-        }
-        return result;
-    }
 
-    private List<String> getAdj(String cur, Set<String> visited) {
-        List<String> adj = new ArrayList<>();
-        String candidate;
-        for (int i = 0; i < cur.length(); i++) {
-            char ch = cur.charAt(i);
-            if (ch == '(' || ch == ')') {
-                candidate = cur.substring(0, i) + cur.substring(i + 1);
-                if (!visited.contains(candidate)) {
-                    visited.add(candidate);
-                    adj.add(candidate);
+        boolean found = false;
+
+        while (!queue.isEmpty()) {
+            s = queue.poll();
+
+            if (isValid(s)) {
+                // found an answer, add to the result
+                res.add(s);
+                found = true;
+            }
+
+            if (found) continue;
+
+            // generate all possible states
+            for (int i = 0; i < s.length(); i++) {
+                // we only try to remove left or right paren
+                if (s.charAt(i) != '(' && s.charAt(i) != ')') continue;
+
+                String t = s.substring(0, i) + s.substring(i + 1);
+
+                if (!visited.contains(t)) {
+                    // for each state, if it's not visited, add it to the queue
+                    queue.add(t);
+                    visited.add(t);
                 }
             }
         }
-        return adj;
+
+        return res;
     }
 
     private boolean isValid(String s) {
