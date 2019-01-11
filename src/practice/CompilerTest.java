@@ -29,24 +29,20 @@ public class CompilerTest {
 
         };
 
-
-        long start = (int) (System.currentTimeMillis() * 1000);
-        computeByRow(a, b);
-        long end = (int) (System.currentTimeMillis() * 1000);
-        long diff=end-start;
-        System.out.println(diff);
-
-
-        long start1 = (int) (System.currentTimeMillis() * 1000);
+        long start1 = System.nanoTime();
         computeByCol(a, b);
-        long end1 = (int) (System.currentTimeMillis() * 1000);
+        long end1 = System.nanoTime();
         long diff1=end1-start1;
         System.out.println(diff1);
 
+        long start = System.nanoTime() ;
+        computeByRow(a, b);
+        long end = System.nanoTime();
+        long diff=end-start;
+        System.out.println(diff);
+
         if(diff1-diff>0)
             System.out.println("takes more time");
-        else
-            System.out.println("less");
 
     }
 
