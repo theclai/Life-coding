@@ -3,7 +3,10 @@ package practice;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.function.BiFunction;
 
 /**
@@ -34,6 +37,8 @@ public class EasyToDialValidation {
      * Helper bifunction to clean the input for validation.
      */
     BiFunction<String, String, String> cleanInput = (phone, pattern) -> phone.replaceAll(PATTERN, "");
+
+    Map<Character,Character> charMap=new HashMap();
 
     /**
      * Initialize the classes for unit test.
@@ -180,9 +185,10 @@ public class EasyToDialValidation {
      * Helper function to recursively call the function
      */
     private boolean helper(int start, String input) {
-        if (start >= NUMBER_LEN)
+        if (start == NUMBER_LEN)
             return true;
         char c = input.charAt(start - 1);
+
         if (keyboard[Integer.valueOf(String.valueOf(c))].contains(input.charAt(start)))
             return helper(start + 1, input);
         return false;
