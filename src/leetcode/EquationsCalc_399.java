@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.*;
 
-public class EquationsCalc {
+public class EquationsCalc_399 {
     Map<String, Map<String, Double>> map = new HashMap<>();
 
     public double[] calcEquation(String[][] equations,
