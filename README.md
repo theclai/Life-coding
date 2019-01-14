@@ -57,5 +57,12 @@ Composition Function: http://www.deadcoderising.com/2015-09-07-java-8-functional
             System.out.println("Key: "+entry.getKey()+"value: "+entry.getValue());
         });
 ```
-         
+    
+#### String counting in java 8
+```$xslt
+        String[] strings=new String[]{"hello","world","hello"};
+        List<String> list=Arrays.asList(strings);
+        Map<String, Long> map1=         list.stream().collect(groupingBy(identity(), counting()));
+
+```        
            
