@@ -50,6 +50,7 @@ public class LFUCache {
             int evit = lists.get(min).iterator().next();
             lists.get(min).remove(evit);
             cache.remove(evit);
+            counts.remove(evit);
         }
         cache.put(key, value);
 
