@@ -84,8 +84,8 @@ Composition Function: http://www.deadcoderising.com/2015-09-07-java-8-functional
      list.add(new Inerval(4,10));
      list.add(new Inerval(20,25));
      list.sort(Comparator.comparingInt(v -> v.start));
-     list.stream().forEach(inerval -> {
-                System.out.println(inerval.start+"->"+inerval.end);
+     list.stream().forEach(interval -> {
+                System.out.println(interval.start+"->"+interval.end);
       });
 ```
            
