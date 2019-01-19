@@ -65,4 +65,27 @@ Composition Function: http://www.deadcoderising.com/2015-09-07-java-8-functional
         Map<String, Long> map1=         list.stream().collect(groupingBy(identity(), counting()));
 
 ```        
+
+#### Sort list of object based on property
+```$xslt
+ private static class Inerval {
+        int start;
+        int end;
+
+        public Inerval(int start, int end) {
+            this.start = start;
+            this.end = end;
+        }
+    }
+    
+     ArrayList<Inerval> list=new ArrayList<>();
+     list.add(new Inerval(1,3));
+     list.add(new Inerval(5,8));
+     list.add(new Inerval(4,10));
+     list.add(new Inerval(20,25));
+     list.sort(Comparator.comparingInt(v -> v.start));
+     list.stream().forEach(inerval -> {
+                System.out.println(inerval.start+"->"+inerval.end);
+      });
+```
            
