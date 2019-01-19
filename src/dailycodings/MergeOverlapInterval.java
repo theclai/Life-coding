@@ -22,20 +22,19 @@ public class MergeOverlapInterval {
         list.add(new Interval(5, 8));
         list.add(new Interval(4, 10));
         list.add(new Interval(20, 25));
-
-        list.sort(Comparator.comparingInt(v -> v.start));
-        list.stream().forEach(interval -> {
-            //System.out.println(interval.start + "->" + interval.end);
-        });
-
         merge(list).stream().forEach(interval -> {
             System.out.println(interval.start + "->" + interval.end);
         });
     }
 
-    private static List<Interval> merge(ArrayList<Interval> list) {
+    private static List<Interval> merge(ArrayList<Interval> intervals) {
+        intervals.sort(Comparator.comparingInt(i -> i.start));
+        //intervals.forEach(interval -> System.out.println(interval.start));
+        if(intervals==null) return null;
+        if(intervals.size()==0) return intervals;
+        if(intervals.size()==1) return intervals;
         List<Interval> result = new ArrayList<>();
-        for (Interval itvl : list) {
+        for (Interval itvl : intervals) {
             if (result.size() == 0)
                 result.add(itvl);
             else {
