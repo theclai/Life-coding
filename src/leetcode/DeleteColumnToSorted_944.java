@@ -1,8 +1,8 @@
-package dailycodings;
+package leetcode;
 
 import java.util.Arrays;
 
-public class DeleteColumnToSorted {
+public class DeleteColumnToSorted_944 {
     public static void main(String[] args) {
         minDeletionSize(new String[]{"dog","cat","mew"});
     }

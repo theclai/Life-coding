@@ -28,9 +28,7 @@ public class NonDecreasingPossible {
 
         int change = 0;
         for (int i = 1; i < in.length; i++) {
-            if (in[i] > in[i - 1])
-                continue;
-            else {
+            if(in[i-1]>in[i]) {
                 if (change >= 1)
                     return false;
                 else
