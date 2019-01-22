@@ -88,4 +88,7 @@ Composition Function: http://www.deadcoderising.com/2015-09-07-java-8-functional
                 System.out.println(interval.start+"->"+interval.end);
       });
 ```
-           
+#### PriorityQueue with custom comparator
+```$xslt
+ PriorityQueue<ListNode> pq = new PriorityQueue<>(Comparator.comparing(node -> node.val));
+```           
