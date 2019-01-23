@@ -4,12 +4,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class NonDecreasingPossible {
-    NonDecreasingPossible decreasingPossible;
+public class NonDecreasingPossible_79 {
+    NonDecreasingPossible_79 decreasingPossible;
 
     @BeforeEach
     public void init() {
-        decreasingPossible = new NonDecreasingPossible();
+        decreasingPossible = new NonDecreasingPossible_79();
     }
 
     @Test
