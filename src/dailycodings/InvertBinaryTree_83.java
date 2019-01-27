@@ -8,7 +8,7 @@ import leetcode.TreeNode;
  *      /\
  *     5  7
  * */
-public class InvertBinaryTree {
+public class InvertBinaryTree_83 {
     public static void main(String[] args) {
         TreeNode root=new TreeNode(1);
         root.left=new TreeNode(2);
