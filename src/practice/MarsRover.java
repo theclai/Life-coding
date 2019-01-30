@@ -3,7 +3,6 @@ package practice;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.HashMap;
 
 /**
@@ -56,6 +55,17 @@ public class MarsRover {
     public void getUpdateLocationTest() {
         int[] res = marsRover.getUpdateLocation(2, 3, 'E');
         Assertions.assertEquals(4, res[1]);
+    }
+
+    @Test
+    public void commandsTest() {
+        char[] commands = new char[]{'L', 'M', 'L', 'M', 'L', 'M', 'L', 'M', 'M'};
+        for (char c : commands) {
+            executeCommand(c);
+        }
+        System.out.println(position.getC());
+        Assertions.assertEquals(0, position.getR());
+        Assertions.assertEquals(2, position.getC());
     }
 
     /**
