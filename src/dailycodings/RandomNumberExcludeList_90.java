@@ -1,8 +1,6 @@
 package dailycodings;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomNumberExcludeList_90 {
@@ -14,7 +12,7 @@ public class RandomNumberExcludeList_90 {
         set.add(9);
         int count=0;
         while (count<10) {
-            System.out.println(generate(0, 10));
+            System.out.println(betterApproach(0, 10));
             count++;
         }
     }
@@ -26,5 +24,17 @@ public class RandomNumberExcludeList_90 {
             rand=ThreadLocalRandom.current().nextInt(min,max);
         }
         return rand;
+    }
+
+    private static int betterApproach(int min, int max) {
+        List<Integer> list=new ArrayList<>();
+        for (int i = 0; i <max ; i++) {
+            if(!set.contains(i))
+                list.add(i);
+        }
+
+        int pos=ThreadLocalRandom.current().nextInt(min,list.size());
+
+        return list.get(pos);
     }
 }
