@@ -1,30 +1,40 @@
 package leetcode.contests.contest_122;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import java.util.*;
 
 public class EvenSum {
     static int[] A;
     static int[][] queries;
+    EvenSum evenSum;
 
-    public static void main(String[] args) {
-        A = new int[]{5,4,0,2};
+    @BeforeEach
+    public void init() {
+        evenSum = new EvenSum();
+        A = new int[]{5, 4, 0, 2};
         queries = new int[][]{
-                {1,1}, {3, 1}, {3,3},{5,1}
+                {1, 1}, {3, 1}, {3, 3}, {5, 1}
         };
-        int[] res=sumEvenAfterQueries(A,queries);
-        Arrays.stream(res).forEach(i-> System.out.println(i));
     }
 
+    @Test
+    public void test() {
+        Assertions.assertEquals(0, evenSum.sumEvenAfterQueries(A, queries)[3]);
 
-    public static int[] sumEvenAfterQueries(int[] A, int[][] queries) {
-        if(A==null || A.length==0)return new int[]{};
-        if(queries==null || queries.length==0)return A;
-        HashMap<Integer,Integer> evens=new HashMap<Integer,Integer>();
-        List<Integer> result = new ArrayList<>();
+    }
+
+    public int[] sumEvenAfterQueries(int[] A, int[][] queries) {
+        if (A == null || A.length == 0) return new int[]{};
+        if (queries == null || queries.length == 0) return A;
+        int[] res = new int[queries.length];
+        Set<Integer> evens = new HashSet<>();
         int sum = 0;
         for (int i = 0; i < A.length; i++) {
-            if (Math.abs(A[i]) % 2 == 0) {
-                evens.put(i, A[i]);
+            if (A[i] % 2 == 0) {
+                evens.add(i);
                 sum += A[i];
             }
         }
@@ -33,35 +43,30 @@ public class EvenSum {
             int[] q = queries[i];
             int val = q[0];
             int pos = q[1];
-            int temp=A[pos]+val;
+            int temp = A[pos] + val;
             if (temp % 2 == 0) {
-                if (evens.containsKey(pos)) {
-                    sum = sum - evens.get(pos);
-                    evens.put(pos, A[pos] + val);
-                    sum = sum + A[pos] + val;
-                    result.add(sum);
+                if (evens.contains(pos)) {
+                    sum = sum - A[pos];
                     A[pos] = A[pos] + val;
+                    sum += A[pos];
+                    res[i] = sum;
+
                 } else {
                     A[pos] += val;
-                    evens.put(pos,A[pos]);
-                    sum+=A[pos];
-                    result.add(sum);
+                    evens.add(pos);
+                    sum += A[pos];
+                    res[i] = sum;
                 }
-            }else{
-                if(evens.containsKey(pos)){
-                    sum-=evens.get(pos);
+            } else {
+                if (evens.contains(pos)) {
+                    sum -= A[pos];
                 }
-                result.add(sum);
-                A[pos]+=val;
+                res[i] = sum;
+                A[pos] += val;
                 evens.remove(pos);
             }
         }
-
-        int[] arr = new int[result.size()];
-        for (int i = 0; i < result.size(); i++) {
-            arr[i] = result.get(i);
-        }
-        return arr;
+        return res;
 
     }
 }
