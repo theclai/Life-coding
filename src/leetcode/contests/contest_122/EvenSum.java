@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 
 public class EvenSum {
-    static int[] A;
-    static int[][] queries;
+    int[] A;
+    int[][] queries;
     EvenSum evenSum;
 
     @BeforeEach
@@ -23,7 +23,6 @@ public class EvenSum {
     @Test
     public void test() {
         Assertions.assertEquals(0, evenSum.sumEvenAfterQueries(A, queries)[3]);
-
     }
 
     public int[] sumEvenAfterQueries(int[] A, int[][] queries) {
@@ -67,6 +66,5 @@ public class EvenSum {
             }
         }
         return res;
-
     }
 }
