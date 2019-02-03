@@ -21,10 +21,16 @@ public class SmallestFromLeaf {
     }
 
     public static String helper(String in, TreeNode node) {
+        //System.out.println(in);
         if (node.left == null && node.right == null)
             return node.c+in;
         String lStr=helper(node.c+in,node.left);
-        String rStr=helper(node.c+in,node.left);
+        if(in.length()>0)
+            in.substring(0,in.length()-1);
+        String rStr=helper(node.c+in,node.right);
+        if(in.length()>0)
+            in.substring(0,in.length()-1);
+        System.out.println("Left: "+lStr+" Right:"+rStr);
         if(lStr.compareTo(rStr)==0)return lStr;
         else if(lStr.compareTo(rStr)>0) return rStr;
         else return lStr;
