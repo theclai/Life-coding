@@ -15,6 +15,7 @@ public class CourseCompletion_92 {
         processed = new HashSet<>();
         map.put("CSC100", new ArrayList<>());
         map.put("CSC200", new ArrayList<>());
+        map.put("CSC100", new ArrayList<>()).add("CSC300");
         map.computeIfAbsent("CSC300", val -> new ArrayList<>()).add("CSC100");
         map.computeIfAbsent("CSC300", val -> new ArrayList<>()).add("CSC200");
     }
@@ -41,23 +42,9 @@ public class CourseCompletion_92 {
             res.add(start);
             processed.add(start);
 
-        }else{
+        } else {
             res.add(start);
             processed.add(start);
         }
-
-
-
-
-    }
-
-    public String findStartingPoint() {
-        Iterator it = map.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry<String, ArrayList<String>> e = (Map.Entry<String, ArrayList<String>>) it.next();
-            if (e.getValue().size() == 0)
-                return e.getKey();
-        }
-        return "";
     }
 }
