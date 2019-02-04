@@ -3,36 +3,40 @@ package leetcode.contests.contest_122;
 import leetcode.TreeNode;
 
 public class SmallestFromLeaf {
+    static String ans = "~";
+
     public static void main(String[] args) {
-        TreeNode root = new TreeNode('a');
-        root.left = new TreeNode('b');
-        root.right = new TreeNode('c');
-        root.left.left = new TreeNode('d');
-        root.left.right = new TreeNode('e');
-        root.right.left = new TreeNode('d');
-        root.right.right = new TreeNode('e');
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(1);
+        root.right = new TreeNode(2);
+        root.left.left = new TreeNode(3);
+        root.left.right = new TreeNode(4);
+        root.right.left = new TreeNode(3);
+        root.right.right = new TreeNode(4);
 
         System.out.println(smallestFromLeaf(root));
     }
 
     public static String smallestFromLeaf(TreeNode root) {
-        if(root==null)return "";
-        return helper("", root);
+        if (root == null) return "";
+        helper(root, new StringBuilder());
+        return ans;
     }
 
-    public static String helper(String in, TreeNode node) {
-        //System.out.println(in);
-        if (node.left == null && node.right == null)
-            return node.c+in;
-        String lStr=helper(node.c+in,node.left);
-        if(in.length()>0)
-            in.substring(0,in.length()-1);
-        String rStr=helper(node.c+in,node.right);
-        if(in.length()>0)
-            in.substring(0,in.length()-1);
-        System.out.println("Left: "+lStr+" Right:"+rStr);
-        if(lStr.compareTo(rStr)==0)return lStr;
-        else if(lStr.compareTo(rStr)>0) return rStr;
-        else return lStr;
+    public static void helper(TreeNode node, StringBuilder sb) {
+        if (node == null) return;
+        sb.append((char) ('a' + node.val));
+
+        if (node.left == null && node.right == null) {
+            sb.reverse();
+            String S = sb.toString();
+            sb.reverse();
+
+            if (S.compareTo(ans) < 0)
+                ans = S;
+        }
+        helper(node.left, sb);
+        helper(node.right, sb);
+        sb.deleteCharAt(sb.length() - 1);
     }
 }
