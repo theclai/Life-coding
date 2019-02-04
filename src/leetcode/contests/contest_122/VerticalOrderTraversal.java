@@ -23,9 +23,9 @@ public class VerticalOrderTraversal {
         helper(map, root, 0);
         List<List<Integer>> result=new ArrayList<>();
         int index=0;
-        Iterator it=map.entrySet().iterator();
+        Iterator<Map.Entry<Integer, List<Integer>>> it=map.entrySet().iterator();
         while (it.hasNext()){
-            Map.Entry<Integer,List<Integer>> data= (Map.Entry<Integer, List<Integer>>) it.next();
+            Map.Entry<Integer,List<Integer>> data= it.next();
             result.add(index,data.getValue());
             index++;
         }
