@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class NextGreatestNumber {
     public static void main(String[] args) {
-        int[] in1 = new int[]{2,5,1,6,7,8};
+        int[] in1 = new int[]{2, 5, 1, 6, 7, 8};
         int[] in2 = new int[]{3, 2, 1};
-        int[] in3 = new int[]{5,3,4,9,7,6};
+        int[] in3 = new int[]{5, 3, 4, 9, 7, 6};
         int[] res1 = compute(in1);
         Arrays.stream(res1).forEach(i -> System.out.print(i + "->"));
         System.out.println("");
@@ -15,34 +15,23 @@ public class NextGreatestNumber {
         System.out.println("");
         int[] res3 = compute(in3);
         Arrays.stream(res3).forEach(i -> System.out.print(i + "->"));
-
     }
 
     public static int[] compute(int[] in) {
-        boolean isAscending = isSortedAscending(in);
-        if (isAscending) {
-            int temp = in[in.length - 1];
-            in[in.length - 1] = in[in.length - 2];
-            in[in.length - 2] = temp;
+        if (isSortedAscending(in)) {
+            swap(in, in.length - 2, in.length - 1);
             return in;
         }
-
         if (isSortedDescending(in))
             return new int[0];
 
-
         int i = in.length - 1;
-
-        int j=i-1;
-
-        while (in[j]>in[i]){
+        int j = i - 1;
+        while (in[j] > in[i]) {
             j--;
         }
-        System.out.println(j);
-        swap(in,i,j);
-
-        Arrays.sort(in,j,in.length);
-
+        swap(in, i, j);
+        Arrays.sort(in, j, in.length);
         return in;
     }
 
