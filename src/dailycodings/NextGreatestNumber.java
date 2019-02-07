@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class NextGreatestNumber {
     public static void main(String[] args) {
-        int[] in1 = new int[]{1, 2, 3};
+        int[] in1 = new int[]{2,5,1,6,7,8};
         int[] in2 = new int[]{3, 2, 1};
-        int[] in3 = new int[]{4, 1, 5, 4};
+        int[] in3 = new int[]{5,3,4,9,7,6};
         int[] res1 = compute(in1);
         Arrays.stream(res1).forEach(i -> System.out.print(i + "->"));
         System.out.println("");
@@ -33,13 +33,15 @@ public class NextGreatestNumber {
 
         int i = in.length - 1;
 
+        int j=i-1;
 
-        while (in[i-1]>in[i]) {
-            swap(in,i-1,i);
-            i--;
+        while (in[j]>in[i]){
+            j--;
         }
+        System.out.println(j);
+        swap(in,i,j);
 
-        swap(in,i,i-1);
+        Arrays.sort(in,j,in.length);
 
         return in;
     }
