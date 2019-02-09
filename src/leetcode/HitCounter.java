@@ -11,77 +11,54 @@ import static java.util.stream.Collectors.groupingBy;
 public class HitCounter {
     public static void main(String[] args) {
         HitCounter hc = new HitCounter();
-/**
- * ["HitCounter","hit","hit","hit","hit","getHits","hit","getHits","hit","getHits"]
- *  [[],         [1],   [1],  [1], [300],[300],    [300], [300],   [301],[301]]
- * */
-        hc.hit(1);
-        hc.hit(1);
-        hc.hit(1);
-        hc.hit(300);
 
+
+
+        //["HitCounter","hit","hit","hit","getHits","getHits","getHits","getHits","getHits","hit","getHits"]
+        //[[],          [2],   [3],  [4],    [300],   [301],    [302],    [303],[   304],[501],[600]]
+
+        hc.hit(2);
+        hc.hit(3);
+        hc.hit(4);
         System.out.println(hc.getHits(300));
-        hc.hit(300);
-        System.out.println(hc.getHits(300));
-        hc.hit(301);
         System.out.println(hc.getHits(301));
-        //System.out.println(hc.getHits(302));
-        //System.out.println(hc.getHits(303));
-        //System.out.println(hc.getHits(304));
-        //System.out.println(hc.getHits(600));
+        System.out.println(hc.getHits(302));
+        System.out.println(hc.getHits(303));
+        System.out.println(hc.getHits(304));
+
+        //hc.hit(500);
+        System.out.println(hc.getHits(600));
+
     }
-
-    Map<Integer, Integer> map;
-    LinkedList<Integer> counter;
-    int hits = 0;
-
-    /**
-     * Initialize your data structure here.
-     */
+    private int[] times;
+    private int[] hits;
+    /** Initialize your data structure here. */
     public HitCounter() {
-        map = new LinkedHashMap<>();
-        counter = new LinkedList<>();
+        times = new int[300];
+        hits = new int[300];
     }
 
-    /**
-     * Record a hit.
-     *
-     * @param timestamp - The current timestamp (in seconds granularity).
-     */
+    /** Record a hit.
+     @param timestamp - The current timestamp (in seconds granularity). */
     public void hit(int timestamp) {
-        if (map.size() == 0) {
-            map.put(timestamp, 1);
-            hits++;
-            counter.addFirst(timestamp);
+        int index = timestamp % 300;
+        if (times[index] != timestamp) {
+            times[index] = timestamp;
+            hits[index] = 1;
         } else {
-            if (counter.getFirst() - counter.getLast() >= 300) {
-                int last = counter.getLast();
-                int val = map.get(last);
-                hits -= val;
-                map.remove(last);
-                counter.removeLast();
-            } else {
-                counter.addFirst(timestamp);
-                hits++;
-                map.compute(timestamp, (k, v) -> v==null?1:v + 1);
+            hits[index]++;
+        }
+    }
+
+    /** Return the number of hits in the past 5 minutes.
+     @param timestamp - The current timestamp (in seconds granularity). */
+    public int getHits(int timestamp) {
+        int total = 0;
+        for (int i = 0; i < 300; i++) {
+            if (timestamp - times[i] < 300) {
+                total += hits[i];
             }
         }
-    }
-
-    /**
-     * Return the number of hits in the past 5 minutes.
-     *
-     * @param timestamp - The current timestamp (in seconds granularity).
-     */
-    public int getHits(int timestamp) {
-        while (counter.size()!=0 &&timestamp - counter.getLast() >= 300) {
-            int data = counter.getLast();
-            int val = map.get(data);
-            hits -= val;
-            counter.removeLast();
-            map.remove(data);
-        }
-        return hits;
-
+        return total;
     }
 }
