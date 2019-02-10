@@ -15,7 +15,7 @@ public class ArraytoFormInteger {
     public void init() {
         arraytoFormInteger = new ArraytoFormInteger();
     }
-/*
+
     @Test
     public void test_first() {
         List<Integer> res = addToArrayForm(new int[]{1, 2, 0, 0}, 34);
@@ -58,7 +58,7 @@ public class ArraytoFormInteger {
         res2.forEach(integer -> System.out.print(integer));
         System.out.println("");
     }
-*/
+
     @Test
     public void test_seventh() {
         List<Integer> res2 = addToArrayForm(new int[]{6}, 809);
