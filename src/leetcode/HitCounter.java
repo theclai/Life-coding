@@ -1,13 +1,5 @@
 package leetcode;
 
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.function.Function;
-
-import static java.util.stream.Collectors.counting;
-import static java.util.stream.Collectors.groupingBy;
-
 public class HitCounter {
     public static void main(String[] args) {
         HitCounter hc = new HitCounter();
