@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 
 public class BrokenCalculator {
     BrokenCalculator bc;
-    int count = 0;
-
     @BeforeEach
     public void init() {
         bc = new BrokenCalculator();
