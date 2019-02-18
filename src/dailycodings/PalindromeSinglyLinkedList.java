@@ -7,8 +7,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Iterator;
-import java.util.LinkedList;
 
 public class PalindromeSinglyLinkedList {
     PalindromeSinglyLinkedList palindromeSinglyLinkedList;
@@ -21,30 +19,14 @@ public class PalindromeSinglyLinkedList {
         head.next = new ListNode(4);
         head.next.next = new ListNode(3);
         head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(2);
+        head.next.next.next.next = new ListNode(1);
     }
 
     @Test
     public void psll_positive_test() {
-        Assertions.assertEquals(true,isPalindrom(head));
         Assertions.assertEquals(true,isPalindromByStack(head));
 
     }
-
-    public boolean isPalindrom(ListNode head) {
-        String seperator = "-";
-        StringBuilder res = new StringBuilder();
-        while (head != null) {
-            res.append(head.val);
-            res.append(seperator);
-            head = head.next;
-        }
-        res.deleteCharAt(res.length()-1);
-        String str=res.toString();
-        String str1=res.reverse().toString();
-        return str.equalsIgnoreCase(str1);
-    }
-
 
     public boolean isPalindromByStack(ListNode head) {
         ListNode tempHead=head;
