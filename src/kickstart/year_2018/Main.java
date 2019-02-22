@@ -1,7 +1,7 @@
 package kickstart.year_2018;
 import java.util.Scanner;
 
-public class UniqueCalculator {
+class Main {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -17,6 +17,7 @@ public class UniqueCalculator {
         if (input<10 && input%2==0){
             return 0;
         }
+
         else{
             return Math.min(helperIncrease(input,0),helperDecrease(input,0)) ;
         }
