@@ -18,6 +18,7 @@ public class TownJudgeUnionFindWrong {
         townJudgeUnionFindWrong.findJudge(4, new int[][]{{1, 3}, {1, 4}, {2, 3}, {2, 4}, {4, 3}});
     }
 
+
     public int root(int i) {
         while (i != parents[i]) i = parents[i];
         return i;
