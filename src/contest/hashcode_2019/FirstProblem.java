@@ -11,8 +11,9 @@ public class FirstProblem {
         String orientation;
         int t;
         String tags;
+        int id;
 
-        public Photo(String orientation, int t, String[] ts) {
+        public Photo(String orientation, int id, int t, String[] ts) {
             StringBuilder sb = new StringBuilder();
             this.orientation = orientation;
             this.t = t;
@@ -22,6 +23,7 @@ public class FirstProblem {
             }
 
             this.tags = sb.toString().trim();
+            this.id = id;
         }
     }
 
@@ -43,18 +45,18 @@ public class FirstProblem {
             String str = br.readLine();
             String[] splited = str.split(" ");
             System.out.println(str);
-            if (splited[0] .equalsIgnoreCase("H")) {
-                Photo p = new Photo(splited[0], Integer.parseInt(splited[1]), Arrays.copyOfRange(splited, 2, splited.length));
+            if (splited[0].equalsIgnoreCase("H")) {
+                Photo p = new Photo(splited[0], i, Integer.parseInt(splited[1]), Arrays.copyOfRange(splited, 2, splited.length));
                 horizontals.add(p);
             } else {
-                Photo p = new Photo(splited[0], Integer.parseInt(splited[1]), Arrays.copyOfRange(splited, 2, splited.length));
+                Photo p = new Photo(splited[0], i, Integer.parseInt(splited[1]), Arrays.copyOfRange(splited, 2, splited.length));
                 verticals.add(p);
             }
             i++;
         }
 
-        Collections.sort(horizontals,new TagsSimilarityComparator());
-        Collections.sort(verticals,new TagsSimilarityComparator());
+        Collections.sort(horizontals, new TagsSimilarityComparator());
+        Collections.sort(verticals, new TagsSimilarityComparator());
         System.out.println(photos);
 //Close the input stream
         fstream.close();
