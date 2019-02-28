@@ -1,12 +1,9 @@
 package contest.hashcode_2019;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 
 public class FirstProblem {
-
     static class Photo {
         String orientation;
         int t;
@@ -21,7 +18,6 @@ public class FirstProblem {
                 sb.append(ts[i]);
                 sb.append(" ");
             }
-
             this.tags = sb.toString().trim();
             this.id = id;
         }
@@ -30,8 +26,11 @@ public class FirstProblem {
     static List<Photo> horizontals;
     static List<Photo> verticals;
 
+    static List<Integer[]> finalResult;
+
     public static void main(String[] args) throws Exception {
-        FileInputStream fstream = new FileInputStream("/Users/omarfaroque/Life-coding/src/contest/hashcode_2019/a_example.txt");
+        finalResult = new ArrayList<>();
+        FileInputStream fstream = new FileInputStream("/Users/omarfaroque/Life-coding/src/contest/hashcode_2019/e_shiny_selfies.txt");
         BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
         int numOfInput = Integer.parseInt(br.readLine());
         System.out.println(numOfInput);
@@ -56,10 +55,52 @@ public class FirstProblem {
         }
 
         Collections.sort(horizontals, new TagsSimilarityComparator());
+        for (Photo p : horizontals) {
+            Integer[] arr = new Integer[1];
+            arr[0] = p.id;
+            finalResult.add(arr);
+
+        }
+
         Collections.sort(verticals, new TagsSimilarityComparator());
-        System.out.println(photos);
+        int it = 0;
+        while (it < verticals.size()) {
+            Integer[] arr = new Integer[2];
+            arr[0] = verticals.get(it).id;
+            if (it + 1 < verticals.size()) {
+                arr[1] = verticals.get(it + 1).id;
+            }
+            finalResult.add(arr);
+            it += 2;
+        }
+
+        System.out.println(finalResult);
 //Close the input stream
         fstream.close();
+        printOutput(finalResult);
+    }
+
+    private static void printOutput(List<Integer[]> finalResult) throws Exception {
+        FileWriter f0 = new FileWriter("/Users/omarfaroque/Desktop/out.txt");
+
+        String newLine = System.getProperty("line.separator");
+        f0.write(String.valueOf(finalResult.size()) + newLine);
+
+
+
+        for (int i = 0; i < finalResult.size(); i++) {
+            Integer[] arr=finalResult.get(i);
+            if(arr.length==1){
+                f0.write(arr[0]+newLine);
+            }else{
+                f0.write(arr[0]+" "+arr[1]+newLine);
+            }
+
+        }
+
+        f0.close();
+      //  bw.close();
+
     }
 
     static class TagsSimilarityComparator implements Comparator<Photo> {
