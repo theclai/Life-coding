@@ -1,4 +1,4 @@
-package kickstart.year_2018;
+package contest.year_2018;
 import java.util.Scanner;
 
 class Main {
