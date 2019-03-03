@@ -1,6 +1,5 @@
 package leetcode.contests.contest_126;
 
-import com.sun.tools.javac.code.Scope;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,22 +22,30 @@ public class FindCommonCharacters {
 
     @Test
     public void second_test_positive() {
-        String[] in = new String[]{"acabcddd","bcbdbcbd","baddbadb","cbdddcac","aacbcccd","ccccddda","cababaab","addcaccd"};
+        String[] in = new String[]{"acabcddd", "bcbdbcbd", "baddbadb", "cbdddcac", "aacbcccd", "ccccddda", "cababaab", "addcaccd"};
         Assertions.assertEquals(2, commonChars(in).size());
     }
 
     public List<String> commonChars(String[] A) {
         if (A == null || A.length == 0) return new ArrayList<>();
+        /**
+         * This map will hold the expected output upto current location of the array
+         * */
         HashMap<String, Integer> set = new HashMap<>();
+        /**
+         * Character counter for the word in current position
+         * */
         HashMap<String, Integer> temp;
+
+        /**
+         * Output of similar characs between temp{@link temp} and {@link set}
+         * */
         HashMap<String, Integer> resMap;
-
-
         for (int i = 0; i < A.length; i++) {
             String str = A[i];
             temp = new HashMap<>();
             resMap = new HashMap<>();
-            if (i==0 && set.isEmpty()) {
+            if (i == 0 && set.isEmpty()) {
                 updateTempMap(temp, str);
                 set.putAll(temp);
                 resMap.putAll(temp);
@@ -55,10 +62,17 @@ public class FindCommonCharacters {
                 }
             }
             set.clear();
+            /**
+             * Update {@link set} with the result upto current position
+             * */
             set.putAll(resMap);
             resMap.clear();
             temp.clear();
         }
+        /**
+         * Iterate over the map
+         * add characters to list based on how many time has been  found in all the words
+         * */
         List<String> result = new ArrayList<>();
         Iterator<Map.Entry<String, Integer>> it = set.entrySet().iterator();
         while (it.hasNext()) {
@@ -68,7 +82,6 @@ public class FindCommonCharacters {
                 result.add(String.valueOf(e.getKey()));
             }
         }
-
         return result;
     }
 
