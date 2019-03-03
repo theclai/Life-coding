@@ -3,7 +3,6 @@ package leetcode.contests.contest_126;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.*;
 
 public class FindCommonCharacters {
@@ -23,7 +22,7 @@ public class FindCommonCharacters {
     @Test
     public void second_test_positive() {
         String[] in = new String[]{"acabcddd", "bcbdbcbd", "baddbadb", "cbdddcac", "aacbcccd", "ccccddda", "cababaab", "addcaccd"};
-        Assertions.assertEquals(2, commonChars(in).size());
+        Assertions.assertEquals(0, commonChars(in).size());
     }
 
     public List<String> commonChars(String[] A) {
