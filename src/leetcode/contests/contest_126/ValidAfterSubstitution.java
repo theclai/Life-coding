@@ -37,11 +37,22 @@ public class ValidAfterSubstitution {
         String left = "";
         while (S.length() > 3) {
             int hit = S.indexOf("abc");
+            /**
+             * it the word is not found, then it will return -1
+             * you return false
+             * */
+
             if (hit < 0) return false;
+            /**
+             * If the first three letter is abc,then update S as rest of the word
+             * */
             if (hit == 0) {
                 S = S.substring(hit + 3);
                 System.out.println(S);
             } else {
+                /**
+                 * what happen if you find abc in the middle of the word
+                 * */
                 S = S.substring(0, hit) + S.substring(hit + 3);
             }
         }
