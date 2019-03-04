@@ -24,7 +24,6 @@ public class TimeConversion {
             }
             if (Integer.parseInt(hh) >= 24) hh = "00";
         }
-
         sb.append(hh);
         sb.append(":");
         sb.append(strs[1]);

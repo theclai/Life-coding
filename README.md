@@ -28,6 +28,11 @@ Tree:
    1. Segment Tree: https://www.youtube.com/watch?v=Oq2E2yGadnU
    2. AVL Tree: https://www.youtube.com/watch?v=-9sHvAnLN_w
    
+## Understanding SSTable
+
+    1. https://www.igvita.com/2012/02/06/sstable-and-log-structured-storage-leveldb/
+    2. https://hackernoon.com/fundamentals-of-system-design-part-3-8da61773a631
+   
 ## Java Code Beauty: 
 
 Composition Function: http://www.deadcoderising.com/2015-09-07-java-8-functional-composition-using-compose-and-andthen/
