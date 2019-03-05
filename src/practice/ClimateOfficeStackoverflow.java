@@ -78,17 +78,17 @@ public class ClimateOfficeStackoverflow {
 
             Predicate<Calculations> cals = me -> me.getTime() >= beginTime && me.getTime() <= finishTime;
             List<Calculations> filtered = this.getCalculation()
-                    .parallelStream()
+                    .stream()
                     .filter(cals)
                     .collect(Collectors.toList());
             Collections.sort(filtered, Comparator.comparingInt(Calculations::getTemp));
 
             double median;
-            int len=filtered.size();
+            int len = filtered.size();
             if (len % 2 == 0)
-                median = ((double)filtered.get(len/2).getTemp() + (double)filtered.get(len/2-1).getTemp())/2;
+                median = ((double) filtered.get(len / 2).getTemp() + (double) filtered.get(len / 2 - 1).getTemp()) / 2;
             else
-                median = (double) filtered.get(len/2).getTemp();
+                median = (double) filtered.get(len / 2).getTemp();
             return median;
         }
     }
