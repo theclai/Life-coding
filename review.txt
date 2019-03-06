@@ -1,19 +1,24 @@
 ******************LEETCODE********************
 
-1. 1004 ----------> Max Consecutive Ones III
+01. 1004 ----------> Max Consecutive Ones III
 
 ******************OTHERS**********************
 
-1. Longest Increasing Subsequence
-2. Longest common subsequence
-3. Segment tree: https://github.com/jakobkogler/Algorithm-DataStructures/blob/master/RangeQuery/SegmentTree.java
-4. Segement tree for sum, min and any other implementation
-5. Partition of linkedlist
-6. checkbalance in BST
-7. validate bst
-8. Tree serialization and hashing
-
+01. Longest Increasing Subsequence
+02. Longest common subsequence
+03. Segment tree: https://github.com/jakobkogler/Algorithm-DataStructures/blob/master/RangeQuery/SegmentTree.java
+04. Segement tree for sum, min and any other implementation
+05. Partition of linkedlist
+06. checkbalance in BST
+07. validate bst
+08. Tree serialization and hashing
+09. String Interleaving
+10. K largest element in O(n)
+11. Missing IP addresses
+12. Roman to int
+13. Wildcard matching
+14. longest substring without repeating character
 *************DAILY CODINGS*******************
-1. Dailycodings-17
+01. Dailycodings-17
 
 
