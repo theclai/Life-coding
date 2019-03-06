@@ -1,2 +1,19 @@
-Leetcode:
-1004 ----------> Max Consecutive Ones III
+******************LEETCODE********************
+
+1. 1004 ----------> Max Consecutive Ones III
+
+******************OTHERS**********************
+
+1. Longest Increasing Subsequence
+2. Longest common subsequence
+3. Segment tree: https://github.com/jakobkogler/Algorithm-DataStructures/blob/master/RangeQuery/SegmentTree.java
+4. Segement tree for sum, min and any other implementation
+5. Partition of linkedlist
+6. checkbalance in BST
+7. validate bst
+8. Tree serialization and hashing
+
+*************DAILY CODINGS*******************
+1. Dailycodings-17
+
+
