@@ -4,8 +4,12 @@ import leetcode.TreeNode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 public class PreOrderTraversalToBST {
     PreOrderTraversalToBST preOrderTraversalToBST;
+    int p = 0;
+    int[] arr;
 
     @BeforeEach
     public void init() {
@@ -15,27 +19,23 @@ public class PreOrderTraversalToBST {
     @Test
     public void first_preordertraversaltobst() {
         preOrderTraversalToBST.bstFromPreorder(new int[]{8, 5, 1, 7, 10, 12});
+        //need to add validation
     }
 
     public TreeNode bstFromPreorder(int[] preorder) {
-        TreeNode root = new TreeNode(preorder[0]);
-        buildTree(root, 1, preorder.length, preorder);
-        return root;
+        this.arr = preorder;
+        return helper(Integer.MAX_VALUE);
 
     }
 
-    private TreeNode buildTree(TreeNode root, int left, int right, int[] in) {
-
-
-    }
-
-    private int findRight(int val, int left, int[] in) {
-        while (left + 1 < in.length) {
-            if (in[left + 1] > val)
-                return left;
-            left++;
-        }
-        return -1;
+    private TreeNode helper(int limit) {
+        if (p >= arr.length || arr[p] > limit)
+            return null;
+        int val = arr[p++];
+        TreeNode node = new TreeNode(val);
+        node.left = helper(val);
+        node.right = helper(limit);
+        return node;
     }
 }
 
