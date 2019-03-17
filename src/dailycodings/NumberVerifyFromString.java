@@ -54,10 +54,18 @@ public class NumberVerifyFromString {
     }
 
     @Test
-    public void fourth_verify() {
+    public void fourth_verify_positive() {
         String in = modifiedString("1e5");
         boolean result = numberVerifyFromString.verify(in);
         Assertions.assertEquals(true, result);
+
+    }
+
+    @Test
+    public void fifth_verify_negative() {
+        String in = modifiedString("a-2");
+        boolean result = numberVerifyFromString.verify(in);
+        Assertions.assertEquals(false, result);
 
     }
 
