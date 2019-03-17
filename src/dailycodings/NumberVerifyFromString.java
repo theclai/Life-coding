@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class NumberVerifyFromString {
     NumberVerifyFromString numberVerifyFromString;
 
-    private class VNode {
+    class VNode {
         char val;
         HashMap<Character, VNode> map;
 
