@@ -36,6 +36,31 @@ public class NumberVerifyFromString {
 
     }
 
+
+    @Test
+    public void second_verify() {
+        String in = modifiedString("-10");
+        boolean result = numberVerifyFromString.verify(in);
+        Assertions.assertEquals(true, result);
+
+    }
+
+    @Test
+    public void third_verify() {
+        String in = modifiedString("a");
+        boolean result = numberVerifyFromString.verify(in);
+        Assertions.assertEquals(false, result);
+
+    }
+
+    @Test
+    public void fourth_verify() {
+        String in = modifiedString("1e5");
+        boolean result = numberVerifyFromString.verify(in);
+        Assertions.assertEquals(true, result);
+
+    }
+
     private String modifiedString(String s) {
         char[] chars = s.toCharArray();
         for (int i = 0; i < chars.length; i++) {
@@ -50,7 +75,7 @@ public class NumberVerifyFromString {
         if (arr[0] == '-') {
             return helper(head, arr, 0);
         } else if (arr[0] == '*') {
-            return helper(head.map.get('*'), arr, 1);
+            return helper(head.map.get('*'), arr, 0);
         } else {
             return false;
         }
@@ -78,6 +103,7 @@ public class NumberVerifyFromString {
 
         //third layer
         VNode hde = new VNode('e');
+
         VNode hddo = new VNode('.');
         VNode hdod = new VNode('*');
         hd.map.put('e', hde);
@@ -85,9 +111,11 @@ public class NumberVerifyFromString {
         hdo.map.put('*', hdod);
 
         // fourth layer
+        VNode hded = new VNode('*');
         VNode hddoe = new VNode('e');
         VNode hddod = new VNode('*');
         VNode hdode = new VNode('e');
+        hde.map.put('*', hded);
         hddo.map.put('e', hddoe);
         hddo.map.put('*', hddod);
         hddo.map.put('e', hdode);
