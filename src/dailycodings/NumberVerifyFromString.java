@@ -33,7 +33,6 @@ public class NumberVerifyFromString {
         String in = modifiedString("10");
         boolean result = numberVerifyFromString.verify(in);
         Assertions.assertEquals(true, result);
-
     }
 
 
@@ -42,7 +41,6 @@ public class NumberVerifyFromString {
         String in = modifiedString("-10");
         boolean result = numberVerifyFromString.verify(in);
         Assertions.assertEquals(true, result);
-
     }
 
     @Test
@@ -50,7 +48,6 @@ public class NumberVerifyFromString {
         String in = modifiedString("a");
         boolean result = numberVerifyFromString.verify(in);
         Assertions.assertEquals(false, result);
-
     }
 
     @Test
@@ -58,7 +55,6 @@ public class NumberVerifyFromString {
         String in = modifiedString("1e5");
         boolean result = numberVerifyFromString.verify(in);
         Assertions.assertEquals(true, result);
-
     }
 
     @Test
