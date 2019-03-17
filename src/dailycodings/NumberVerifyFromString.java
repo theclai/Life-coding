@@ -19,27 +19,37 @@ public class NumberVerifyFromString {
         }
     }
 
-    VNode head;
+    static VNode head;
 
     @BeforeEach
     public void init() {
         numberVerifyFromString = new NumberVerifyFromString();
         head = new VNode('-');
-        prebuildPattern(head);
+        prebuildPattern();
     }
 
     @Test
     public void first_verify() {
-        boolean result= numberVerifyFromString.verify("10");
-        Assertions.assertEquals(true,result);
+        String in = modifiedString("10");
+        boolean result = numberVerifyFromString.verify(in);
+        Assertions.assertEquals(true, result);
 
+    }
+
+    private String modifiedString(String s) {
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            if (Character.isDigit(chars[i]))
+                chars[i] = '*';
+        }
+        return String.valueOf(chars);
     }
 
     public boolean verify(String str) {
         char[] arr = str.toCharArray();
         if (arr[0] == '-') {
             return helper(head, arr, 0);
-        } else if (Character.isDigit(arr[0])) {
+        } else if (arr[0] == '*') {
             return helper(head.map.get('*'), arr, 1);
         } else {
             return false;
@@ -50,18 +60,16 @@ public class NumberVerifyFromString {
     private boolean helper(VNode parent, char[] arr, int start) {
         if (start == arr.length) return true;
         if (arr[start] == parent.val) {
-            helper(parent, arr, start + 1);
+            return helper(parent, arr, start + 1);
         } else {
             if (parent.map.containsKey(arr[start]))
-                helper(parent.map.get(arr[start]), arr, start + 1);
+                return helper(parent.map.get(arr[start]), arr, start + 1);
             else
                 return false;
         }
-        return false;
-
     }
 
-    private void prebuildPattern(VNode head) {
+    private void prebuildPattern() {
         // second layer
         VNode hd = new VNode('*');
         head.map.put('*', hd);
