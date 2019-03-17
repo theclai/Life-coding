@@ -31,8 +31,9 @@ public class ComplementBase {
     }
 
     public int bitwiseComplement(int N) {
+        if(N<0)return 0;
         String str = Integer.toBinaryString(N);
-        System.out.println("Input in Binary: " + str);
+       // System.out.println("Input in Binary: " + str);
         StringBuilder sb = new StringBuilder(str.length());
 
         for (int i = 0; i < str.length(); i++) {
@@ -44,10 +45,10 @@ public class ComplementBase {
         }
 
         String comStr = sb.toString();
-        System.out.println(comStr);
+        //System.out.println(comStr);
 
         int i = Integer.parseInt(comStr, 2);
-        System.out.println("Output: " + i);
+        //System.out.println("Output: " + i);
         return i;
     }
 }
