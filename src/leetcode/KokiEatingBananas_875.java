@@ -36,37 +36,24 @@ public class KokiEatingBananas_875 {
     }
 
     public int minEatingSpeed(int[] piles, int H) {
-        int sum = Arrays.stream(piles).sum();
-        int res = sum / H;
-        int rem = sum % H;
-        int speed = 0;
-        if (rem >= 0)
-            speed = res + 1;
-        else
-            speed = res;
-        int hour = Integer.MAX_VALUE;
-        while (hour != H) {
-            hour = Math.min(hour, computeSpeed(piles, speed));
-            System.out.println("Speed: " + speed);
-            speed++;
+        int lo = 1;
+        int hi = 1_000_000_000;
+        while (lo < hi) {
+            int mi = (lo + hi) / 2;
+            if (!possible(piles, H, mi))
+                lo = mi + 1;
+            else
+                hi = mi;
         }
-        return speed - 1;
 
+        return lo;
     }
 
-    private int computeSpeed(int[] piles, int speed) {
-        int[] pile = Arrays.copyOf(piles, piles.length);
-        int i = 0;
-        int hour = 0;
-        while (i < pile.length) {
-            int item = pile[i];
-            if (item <= speed) {
-                i++;
-            } else {
-                pile[i] = item - speed;
-            }
-            hour++;
-        }
-        return hour;
+    // Can Koko eat all bananas in H hours with eating speed K?
+    public boolean possible(int[] piles, int H, int K) {
+        int time = 0;
+        for (int p: piles)
+            time += (p-1) / K + 1;
+        return time <= H;
     }
 }
