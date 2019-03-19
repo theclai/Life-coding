@@ -55,6 +55,15 @@ Composition Function: http://www.deadcoderising.com/2015-09-07-java-8-functional
  M=start+(end-start)/2;//overflow error free
 
 ```
+
+#### Sort an int array in descending order
+```$xslt
+int[] sorted = IntStream.of(inputArray)
+        .boxed()
+        .sorted(Comparator.reverseOrder())
+        .mapToInt(i -> i)
+        .toArray();
+```
   
 #### Iterating over map 
   ```
