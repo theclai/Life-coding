@@ -22,46 +22,51 @@ public class KokiEatingBananas_875 {
         Assertions.assertEquals(4, res);
     }
 
+
     @Test
     public void second_minEatingSpeed_positive() {
         int res = kokiEatingBananas_875.minEatingSpeed(new int[]{30, 11, 23, 4, 20}, 5);
-        Assertions.assertEquals(4, res);
+        Assertions.assertEquals(30, res);
+    }
+
+    @Test
+    public void third_minEatingSpeed_positive() {
+        int res = kokiEatingBananas_875.minEatingSpeed(new int[]{30,11,23,4,20}, 6);
+        Assertions.assertEquals(23, res);
     }
 
     public int minEatingSpeed(int[] piles, int H) {
-        /*piles = IntStream.of(piles)
-                .boxed()
-                .sorted(Comparator.reverseOrder())
-                .mapToInt(i -> i)
-                .toArray();*/
         int sum = Arrays.stream(piles).sum();
         int res = sum / H;
         int rem = sum % H;
         int speed = 0;
         if (rem >= 0)
             speed = res + 1;
+        else
+            speed = res;
         int hour = Integer.MAX_VALUE;
         while (hour != H) {
-            hour = Math.min(hour,computeSpeed(piles, speed));
+            hour = Math.min(hour, computeSpeed(piles, speed));
+            System.out.println("Speed: " + speed);
             speed++;
         }
-        return speed-1;
+        return speed - 1;
 
     }
 
     private int computeSpeed(int[] piles, int speed) {
+        int[] pile = Arrays.copyOf(piles, piles.length);
         int i = 0;
-        int temp = 0;
         int hour = 0;
-        while (i < piles.length) {
-            int item = piles[i];
+        while (i < pile.length) {
+            int item = pile[i];
             if (item <= speed) {
                 i++;
             } else {
-                piles[i] = speed - item;
+                pile[i] = item - speed;
             }
             hour++;
         }
-        return hour+1;
+        return hour;
     }
 }
