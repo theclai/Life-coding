@@ -4,10 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.stream.IntStream;
-
 public class KokiEatingBananas_875 {
     KokiEatingBananas_875 kokiEatingBananas_875;
 
@@ -21,7 +17,6 @@ public class KokiEatingBananas_875 {
         int res = kokiEatingBananas_875.minEatingSpeed(new int[]{3, 6, 7, 11}, 8);
         Assertions.assertEquals(4, res);
     }
-
 
     @Test
     public void second_minEatingSpeed_positive() {
@@ -45,7 +40,6 @@ public class KokiEatingBananas_875 {
             else
                 hi = mi;
         }
-
         return lo;
     }
 
