@@ -32,6 +32,12 @@ public class ThreePartEqualSum {
         Assertions.assertEquals(true, result);
     }
 
+    @Test
+    public void canThreePartsEqualSumPositiveSec() {
+        boolean result = threePartEqualSum.canThreePartsEqualSum(new int[]{12,-4,16,-5,9,-3,3,8,0});
+        Assertions.assertEquals(true, result);
+    }
+
     public boolean canThreePartsEqualSum(int[] A) {
         int sum = Arrays.stream(A).sum();
         int target = sum / 3;
@@ -42,7 +48,7 @@ public class ThreePartEqualSum {
         //System.out.println("first position"+second);
         if (second == -1 || second == A.length) return false;
         int third = findPartition(second, A, target);
-        if (third == -1 || third != A.length) return false;
+        if (third == -1) return false;
         return true;
 
     }
