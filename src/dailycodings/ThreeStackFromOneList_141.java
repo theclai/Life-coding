@@ -3,7 +3,7 @@ package dailycodings;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ThreeStackFromOneList {
+public class ThreeStackFromOneList_141 {
     public static class Item {
         int val;
         int next;
