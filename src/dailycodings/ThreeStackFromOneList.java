@@ -15,16 +15,25 @@ public class ThreeStackFromOneList {
     }
 
     static List<Item> list;
-    private int firstStack = -1;
-    private int secondStack = -1;
-    private int thirdStack = -1;
+    private static int firstStack = -1;
+    private static int secondStack = -1;
+    private static int thirdStack = -1;
 
     public static void main(String[] args) {
         list = new ArrayList<>();
+        push(201,2);
+        push(202,2);
+        push(101,1);
+        push(301,3);
+        System.out.println(pop(2));
+        System.out.println(pop(2));
+
+        System.out.println(pop(3));
+        System.out.println(pop(3));
 
     }
 
-    public void push(int item, int stackNumber) {
+    public static void push(int item, int stackNumber) {
         if (stackNumber == 1) {
             int pos = insert(item, firstStack);
             firstStack = pos;
@@ -35,7 +44,7 @@ public class ThreeStackFromOneList {
         }
     }
 
-    public int pop(int stack) {
+    public static int pop(int stack) {
         Item popped;
         if (stack == 1) {
             if (firstStack == -1) return Integer.MIN_VALUE;
@@ -55,7 +64,7 @@ public class ThreeStackFromOneList {
         }
     }
 
-    private int insert(int item, int stackNumber) {
+    private static int insert(int item, int stackNumber) {
         Item itm = new Item(item, stackNumber);
         //add to list
         list.add(itm);
