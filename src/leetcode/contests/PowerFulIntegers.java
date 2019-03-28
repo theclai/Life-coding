@@ -1,7 +1,5 @@
 package leetcode.contests;
 
-import javafx.collections.transformation.SortedList;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

@@ -1,7 +1,5 @@
 package dailycodings;
 
-import sun.security.util.BitArray;
-
 public class UnsignedInteger {
     public static void main(String[] args) {
 
