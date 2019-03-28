@@ -1,25 +1,27 @@
 package practice.refactoring_to_pattern.specialcase_behavior_to_decorator;
 
-public class CarRental {
+import practice.refactoring_to_pattern.specialcase_behavior_to_decorator.refactor.Rental;
+
+public class CarRental implements Rental {
     protected float fuelConsumed;
     protected int days;
     protected Model model;
-    protected float insuranceRate;
-    protected boolean hasInsurance;
+    //protected float insuranceRate;
+    //protected boolean hasInsurance;
     protected boolean hasRefuelOnReturn;
     protected float refuelPrice;
 
     public CarRental(Model m, int rentalDays) {
         model = m;
         days = rentalDays;
-        hasInsurance = false;
+       // hasInsurance = false;
         hasRefuelOnReturn = false;
     }
 
     public float calcPrice() {
         float price = (model.price * days);
-        if (hasInsurance)
-            price += insuranceAmount();
+        /*if (hasInsurance)
+            price += insuranceAmount();*/
         if (hasRefuelOnReturn)
             price += refuelPrice();
         return price;
@@ -41,14 +43,14 @@ public class CarRental {
         fuelConsumed = amount;
     }
 
-    private float insuranceAmount() {
+   /* private float insuranceAmount() {
         return insuranceRate * getDaysRented();
     }
 
     public void setInsurance(float rate) {
         insuranceRate = rate;
         hasInsurance = true;
-    }
+    }*/
 
     private float refuelPrice() {
         return (getModel().fuelCapacity - getFuelConsumed()) * refuelPrice;
