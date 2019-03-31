@@ -59,24 +59,25 @@ public class BinaryPrefixDivisibleByFive {
         //System.out.println("");
         List<Boolean> list = new ArrayList<>();
 
-        for (int i = 1; i < A.length; i++) {
-            list.add(helper(Arrays.copyOfRange(A,0,i)));
+       for (int i = 1; i < A.length; i++) {
+            list.add(helper(Arrays.copyOfRange(A,0,i+1)));
         }
 
-        return list;
+       return list;
 
     }
 
-    public boolean helper(int[] arr){
-        int num=0;
-        int len=arr.length-1;
-        int count=0;
-        for(int i=len;i>=0;i--){
-            int val = arr[i];
-            double temp=Math.pow(2,count++);
-            num += (val * (int)temp);
+    public boolean helper(int[] numbers){
+        long result = 0;
+        int count = 0;
+        for(int i=numbers.length-1;i>=0;i--){
+            if(numbers[i]==1)
+                result+=(long)Math.pow(2, count);
+            count++;
         }
-        if(num%5==0)return true;
+
+
+        if(result%5==0)return true;
         else return false;
 
     }
