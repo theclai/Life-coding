@@ -4,12 +4,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class ConvertToBaseTwo {
-    ConvertToBaseTwo convertToBaseTwo;
+public class ConvertToBaseTwo_1017 {
+    ConvertToBaseTwo_1017 convertToBaseTwo;
 
     @BeforeEach
     public void init() {
-        convertToBaseTwo = new ConvertToBaseTwo();
+        convertToBaseTwo = new ConvertToBaseTwo_1017();
     }
 
     @Test
