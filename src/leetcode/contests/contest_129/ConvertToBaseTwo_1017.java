@@ -36,6 +36,4 @@ public class ConvertToBaseTwo_1017 {
         }
         return sb.reverse().toString();
     }
-
-
 }
