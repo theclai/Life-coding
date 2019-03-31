@@ -19,37 +19,25 @@ public class BinaryPrefixDivisibleByFive {
     @Test
     public void fistBinaryPrefixDivisibleByFive() {
         List<Boolean> result = binaryPrefixDivisibleByFive.prefixesDivBy5(new int[]{0, 1, 1});
-        result.forEach(data -> System.out.print(data + "-"));
-        System.out.println("");
+        Assertions.assertEquals(Arrays.asList(true, false, false), result);
     }
 
     @Test
     public void secondBinaryPrefixDivisibleByFive() {
         List<Boolean> result = binaryPrefixDivisibleByFive.prefixesDivBy5(new int[]{1, 1, 1});
-        result.forEach(data -> System.out.print(data + "-"));
-        System.out.println("");
+        Assertions.assertEquals(Arrays.asList(false, false, false), result);
     }
 
     @Test
     public void thirdBinaryPrefixDivisibleByFive() {
         List<Boolean> result = binaryPrefixDivisibleByFive.prefixesDivBy5(new int[]{0, 1, 1, 1, 1, 1});
-        result.forEach(data -> System.out.print(data + "-"));
-        System.out.println("");
+        Assertions.assertEquals(Arrays.asList(true, false, false, false, true, false), result);
     }
 
     @Test
     public void fourthBinaryPrefixDivisibleByFive() {
         List<Boolean> result = binaryPrefixDivisibleByFive.prefixesDivBy5(new int[]{1, 1, 1, 0, 1});
-        result.forEach(data -> System.out.print(data+"-"));
-        System.out.println("");
-    }
-
- @Test
-    public void fifthBinaryPrefixDivisibleByFive() {
-        List<Boolean> result = binaryPrefixDivisibleByFive.prefixesDivBy5(new int[]{1,0,0,1,0,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1,0,0,0,0,1,0,1,0,0,0,0,1,1,0,1,0,0,0,1});
-
-        result.forEach(data -> System.out.println(data+"-"));
-        System.out.println("");
+        Assertions.assertEquals(Arrays.asList(false, false, false, false, false), result);
     }
 
     public List<Boolean> prefixesDivBy5(int[] A) {
