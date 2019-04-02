@@ -4,6 +4,7 @@ import leetcode.ListNode;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class NextGreaterNodeInLinkedList_1019 {
@@ -32,29 +33,34 @@ public class NextGreaterNodeInLinkedList_1019 {
         size=input.length;
         int[] res= nextGreaterNodeInLinkedList.nextLargerNodes(head);
         Arrays.deepToString(new int[][]{res});
+
     }
 
     public int[] nextLargerNodes(ListNode head) {
-        int[] result=new int[size];
+        ArrayList<Integer> result=new ArrayList<>();
         ListNode start=head;
         ListNode forward=head.next;
         int j=0;
 
         while (start!=null && forward!=null){
             if(forward.val>start.val){
-                result[j++]=forward.val;
+                result.add(forward.val);
                 start=start.next;
             }else{
                 forward=forward.next;
             }
             if(forward==null){
-                result[j++]=0;
+                result.add(0);
                 start=start.next;
                 if(start!=null)
                     forward=start.next;
             }
         }
-        return result;
+        int[] res=new int[result.size()];
+        for (int i = 0; i <result.size() ; i++) {
+            res[i]=result.get(i);
+        }
+        return res;
     }
 
     private ListNode construct(int[] input) {
