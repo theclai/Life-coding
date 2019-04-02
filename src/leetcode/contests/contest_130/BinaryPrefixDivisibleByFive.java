@@ -11,7 +11,13 @@ import java.util.List;
 public class BinaryPrefixDivisibleByFive {
     BinaryPrefixDivisibleByFive binaryPrefixDivisibleByFive;
 
-    @BeforeEach
+    public static void main(String[] args) {
+        int[] arr=new int[]{0,1,1};
+        for (int a:arr){
+            System.out.println(a<<1);
+        }
+    }
+    /*@BeforeEach
     public void init() {
         binaryPrefixDivisibleByFive = new BinaryPrefixDivisibleByFive();
     }
@@ -48,5 +54,5 @@ public class BinaryPrefixDivisibleByFive {
             result.add(remainder == 0);
         }
         return result;
-    }
+    }*/
 }
