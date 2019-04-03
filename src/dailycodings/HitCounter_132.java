@@ -1,6 +1,6 @@
 package dailycodings;
 
-import java.util.LinkedHashMap;
+import java.util.*;
 
 public class HitCounter_132 {
     static class Counter {
@@ -19,7 +19,7 @@ public class HitCounter_132 {
         }
     }
 
-    static LinkedHashMap<Long, Counter> counters;
+    static SortedMap<Long, Counter> counters;
     static long total = 0;
 
     public static void main(String[] args) {
@@ -34,8 +34,8 @@ public class HitCounter_132 {
 
     }
 
-    private static LinkedHashMap<Long, Counter> getCounterMap() {
-        return new LinkedHashMap<>();
+    private static SortedMap<Long, Counter> getCounterMap() {
+        return Collections.synchronizedSortedMap(new TreeMap<>());
     }
 
     public static void record(long timestamp) {
