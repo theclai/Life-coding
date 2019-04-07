@@ -61,6 +61,7 @@ public class CamelCaseMatching {
                 return false;
             }
         }
+
         if (j != pattern.length()) return false;
         if (i != str.length()) {
             while (i < str.length()) {
@@ -70,9 +71,7 @@ public class CamelCaseMatching {
                     i++;
             }
         }
-        if (i == str.length() || j == pattern.length())
-            return true;
-        return false;
+        return true;
     }
 
 }
