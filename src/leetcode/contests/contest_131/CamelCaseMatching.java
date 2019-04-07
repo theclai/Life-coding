@@ -1,9 +1,11 @@
 package leetcode.contests.contest_131;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CamelCaseMatching {
@@ -14,26 +16,25 @@ public class CamelCaseMatching {
         camelCaseMatching = new CamelCaseMatching();
     }
 
-  /*  @Test
+    @Test
     public void firstCase() {
         List<Boolean> result = camelMatch(new String[]{"FooBar", "FooBarTest", "FootBall", "FrameBuffer", "ForceFeedBack"}, "FB");
-        result.forEach(val-> System.out.print(val+"->"));
+        Assertions.assertEquals(Arrays.asList(true,false,true,true,false),result);
     }
 
     @Test
     public void secondCase() {
-        System.out.println("");
-        List<Boolean> result = camelMatch(new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"}, "FoBa");
-
-        result.forEach(val-> System.out.print(val+"->"));
-    }*/
+        List<Boolean> result = camelMatch(new String[]{"FooBar", "FooBarTest", "FootBall", "FrameBuffer", "ForceFeedBack"}, "FoBa");
+        Assertions.assertEquals(Arrays.asList(true,false,true,false,false),result);
+    }
 
     @Test
     public void thirdCase() {
-        System.out.println("");
-        List<Boolean> result = camelMatch(new String[]{"FooBar","FooBarTest","FootBall","FrameBuffer","ForceFeedBack"}, "FoBaT");
-        result.forEach(val-> System.out.print(val+"->"));
+        List<Boolean> result = camelMatch(new String[]{"FooBar", "FooBarTest", "FootBall", "FrameBuffer", "ForceFeedBack"}, "FoBaT");
+        Assertions.assertEquals(Arrays.asList(false,true,false,false,false),result);
+
     }
+
     public List<Boolean> camelMatch(String[] queries, String pattern) {
         if (queries == null || queries.length == 0 || pattern == null || pattern.length() == 0)
             return new ArrayList<>();
@@ -56,14 +57,14 @@ public class CamelCaseMatching {
                 j++;
             } else if (Character.isLowerCase(str.charAt(i))) {
                 i++;
-            }else if(Character.isUpperCase(str.charAt(i))){
+            } else if (Character.isUpperCase(str.charAt(i))) {
                 return false;
             }
         }
-        if(j!=pattern.length())return false;
-        if(i != str.length()){
-            while (i<str.length()){
-                if(Character.isUpperCase(str.charAt(i)))
+        if (j != pattern.length()) return false;
+        if (i != str.length()) {
+            while (i < str.length()) {
+                if (Character.isUpperCase(str.charAt(i)))
                     return false;
                 else
                     i++;
