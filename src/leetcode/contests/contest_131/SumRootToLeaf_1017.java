@@ -34,8 +34,10 @@ public class SumRootToLeaf_1017 {
     }
 
     public int sumRootToLeaf(TreeNode root) {
+        sum=0;
         helper(root, new StringBuilder());
-        System.out.println(sum);
+        //System.out.println(sum);
+        sum=sum%((int)Math.pow(10,9)+7);
         return sum;
     }
 
@@ -46,10 +48,10 @@ public class SumRootToLeaf_1017 {
         tempSum.append(root.val);
         if(root.left==null && root.right==null){
             System.out.println(tempSum.toString());
-            int decimalValue = Integer.parseInt(tempSum.toString(), 2);
+            int decimalValue = convertToint(tempSum.toString());
             //System.out.println(decimalValue);
             sum+=decimalValue;
-            sum= (int) (sum%(Math.pow(10,9)+7));
+            //sum= (int) (sum%(Math.pow(10,9)+7));
             tempSum.deleteCharAt(tempSum.length()-1);
         }
         else{
@@ -57,5 +59,18 @@ public class SumRootToLeaf_1017 {
             helper(root.right,tempSum);
             tempSum.deleteCharAt(tempSum.length()-1);
         }
+    }
+
+    private int convertToint(String toString) {
+        int flag = 1, binary=0;
+        char binaryOne = '1';
+        char[] charArray = toString.toCharArray();
+        for(int i=charArray.length-1;i>=0;i--){
+            if(charArray[i] == binaryOne){
+                binary+=flag;
+            }
+            flag*=2;
+        }
+        return binary;
     }
 }
