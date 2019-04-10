@@ -34,42 +34,29 @@ public class SumRootToLeaf_1017 {
     }
 
     public int sumRootToLeaf(TreeNode root) {
-        sum=0;
-        helper(root, new StringBuilder());
-        //System.out.println(sum);
-        sum=sum%((int)Math.pow(10,9)+7);
+        if (root == null) return 0;
+        return helper(root, "");
+    }
+
+    private int helper(TreeNode root, String path) {
+        if (root.left == null && root.right == null) {
+            path += root.val;
+            sum += Integer.parseInt(path, 2);
+        }
+        if (root.left != null) helper(root.left, path + root.val);
+        if (root.right != null) helper(root.right, path + root.val);
         return sum;
     }
 
-    private void helper(TreeNode root, StringBuilder tempSum) {
-        if (root == null) {
-            return;
-        }
-        tempSum.append(root.val);
-        if(root.left==null && root.right==null){
-            System.out.println(tempSum.toString());
-            int decimalValue = convertToint(tempSum.toString());
-            //System.out.println(decimalValue);
-            sum+=decimalValue;
-            //sum= (int) (sum%(Math.pow(10,9)+7));
-            tempSum.deleteCharAt(tempSum.length()-1);
-        }
-        else{
-            helper(root.left,tempSum);
-            helper(root.right,tempSum);
-            tempSum.deleteCharAt(tempSum.length()-1);
-        }
-    }
-
     private int convertToint(String toString) {
-        int flag = 1, binary=0;
+        int flag = 1, binary = 0;
         char binaryOne = '1';
         char[] charArray = toString.toCharArray();
-        for(int i=charArray.length-1;i>=0;i--){
-            if(charArray[i] == binaryOne){
-                binary+=flag;
+        for (int i = charArray.length - 1; i >= 0; i--) {
+            if (charArray[i] == binaryOne) {
+                binary += flag;
             }
-            flag*=2;
+            flag *= 2;
         }
         return binary;
     }
